@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoCrohnLimits – Reprendre à son rythme</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f7f4fb;
+      --surface:#fff;
+      --surface-soft:#f1ebf8;
+      --text:#22192c;
+      --muted:#655a72;
+      --line:#e3d8ef;
+      --primary:#6f3fb6;
+      --primary-dark:#56308f;
+      --primary-soft:#efe5fb;
+      --green:#2f9e44;
+      --orange:#f08c00;
+      --red:#e03131;
+      --radius:22px;
+      --shadow:0 18px 50px rgba(77,43,120,.10);
+      --container:1140px;
+    }
+
+    * { box-sizing:border-box; }
+
+    html { scroll-behavior:smooth; }
+
+    body {
+      margin:0;
+      font-family:'Inter',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left,rgba(133,85,199,.10),transparent 28%),
+        radial-gradient(circle at right 15%,rgba(126,187,116,.10),transparent 25%),
+        var(--bg);
+      line-height:1.65;
+      font-size:16px;
+    }
+
+    a {
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container {
+      width:min(var(--container),calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(16px);
+  background: rgba(247,244,251,.84);
+  border-bottom: 1px solid rgba(111,63,182,.08);
+  transition: transform 0.3s ease;
+}
+
+.topbar.hide {
+  transform: translateY(-100%);
+}
+
+    .nav {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      min-height:78px;
+      gap:20px;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:-.02em;
+    }
+
+    .brand-mark {
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:linear-gradient(145deg,#7d4cc6,#5e36a8);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+
+    .nav-links {
+      display:flex;
+      gap:18px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .nav-links a:hover { color:var(--primary); }
+
+    .nav-actions {
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    .mobile-cta { display:none; }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 20px;
+      border-radius:999px;
+      font-weight:700;
+      border:1px solid transparent;
+      transition:180ms ease;
+      cursor:pointer;
+    }
+
+    .btn-primary {
+      background:var(--primary);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(111,63,182,.24);
+    }
+
+    .btn-primary:hover { background:var(--primary-dark); }
+
+    .btn-secondary {
+      background:#fff;
+      color:var(--text);
+      border-color:var(--line);
+    }
+
+    .hero { padding:44px 0 34px; }
+
+    .hero-grid,
+    .tracker,
+    .two-col {
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .eyebrow {
+      display:inline-flex;
+      padding:.55rem .85rem;
+      border:1px solid var(--line);
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+      color:var(--primary);
+      background:#fff;
+    }
+
+    h1 {
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(2.3rem,4vw,4.6rem);
+      line-height:.96;
+      letter-spacing:-.04em;
+      margin:14px 0 16px;
+      max-width:11ch;
+    }
+
+    .hero p {
+      color:var(--muted);
+      max-width:58ch;
+      margin:0 0 26px;
+      font-size:clamp(1rem,2vw,1.08rem);
+    }
+
+    .hero-actions {
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+      align-items:center;
+    }
+
+    .hero-notes {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+
+    .note,
+    .card,
+    .panel,
+    .month-card,
+    .forum-post,
+    .auth-card,
+    .testimonial-card,
+    .help-card {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:0 10px 26px rgba(77,43,120,.05);
+    }
+
+    .note,
+    .card,
+    .panel,
+    .forum-post,
+    .auth-card,
+    .testimonial-card,
+    .help-card {
+      padding:20px;
+    }
+
+    .note strong,
+    .card h3 {
+      font-size:18px;
+    }
+
+    .note span,
+    .card p,
+    .microcopy {
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .hero-visual img {
+      border-radius:32px;
+      box-shadow:var(--shadow);
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    .section { padding:28px 0; }
+
+    .section-header {
+      max-width:760px;
+      margin-bottom:18px;
+    }
+
+    .section-header h2 {
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(2rem,3vw,3.2rem);
+      line-height:1;
+      margin:0 0 10px;
+    }
+
+    .section-header p {
+      margin:0;
+      color:var(--muted);
+      font-size:clamp(.98rem,1.8vw,1.05rem);
+    }
+
+    .grid-3,
+    .month-grid,
+    .history-grid {
+      display:grid;
+      gap:18px;
+    }
+
+    .grid-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .month-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+    .history-grid { grid-template-columns:1fr; }
+
+    .split,
+    .tracker {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .tracker {
+      grid-template-columns:1.15fr .85fr;
+      align-items:start;
+    }
+
+    .panel { padding:24px; }
+
+    .field-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .field {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .field.full { grid-column:1/-1; }
+
+    .field label {
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      border:1px solid #d9cbe9;
+      border-radius:16px;
+      padding:13px 15px;
+      background:#fff;
+      font:inherit;
+      color:var(--text);
+    }
+
+    .field textarea {
+      min-height:110px;
+      resize:vertical;
+    }
+
+    .result {
+      margin-top:18px;
+      padding:18px;
+      border-radius:22px;
+      color:#fff;
+      font-weight:700;
+    }
+
+    .result.green { background:var(--green); }
+    .result.orange { background:var(--orange); }
+    .result.red { background:var(--red); }
+
+    .badge {
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.18);
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .result small {
+      display:block;
+      font-weight:500;
+      margin-top:8px;
+      opacity:.92;
+    }
+
+    .stat-box {
+      padding:18px;
+      margin-bottom:14px;
+      border-radius:22px;
+      background:#f5f1fb;
+      border:1px solid var(--line);
+    }
+
+    .stat-box strong,
+    .month-card strong {
+      display:block;
+      color:var(--primary);
+      font-size:28px;
+    }
+
+    .pill-row,
+    .topic-row {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .pill,
+    .topic {
+      padding:10px 14px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .tabs {
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+
+    .tab-btn {
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:999px;
+      padding:12px 16px;
+      font-weight:700;
+      color:var(--muted);
+      cursor:pointer;
+    }
+
+    .tab-btn.active {
+      background:var(--primary);
+      border-color:var(--primary);
+      color:#fff;
+    }
+
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+
+    .forum-post {
+      margin-top:60px;
+    }
+
+    .forum-post h4 {
+      margin:0 0 8px;
+      font-size:18px;
+    }
+
+    .forum-post p {
+      margin:0;
+      color:var(--muted);
+    }
+
+    @media (max-width: 768px) {
+  #forum .container {
+    padding: 0 16px;
+  }
+}
+    
+    .auth-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .hidden { display:none !important; }
+
+    .text-block {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:24px;
+      box-shadow:0 10px 26px rgba(77,43,120,.05);
+    }
+
+    .text-block h3 {
+      margin:0 0 10px;
+      font-family:'DM Serif Display',serif;
+      font-size:var(--text-xl,2rem);
+    }
+
+    .text-block p,
+    .text-block li {
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    .text-block ul {
+      margin:0;
+      padding-left:18px;
+    }
+
+    .lead {
+      font-size:17px;
+      color:var(--text);
+      max-width:70ch;
+    }
+
+    .testimonial-card {
+      padding:20px;
+    }
+
+    .testimonial-card h4 {
+      margin:0 0 8px;
+      font-size:18px;
+      color:var(--text);
+    }
+
+    .testimonial-card p {
+      margin:0 0 12px;
+      color:var(--muted);
+      line-height:1.65;
+    }
+
+    .testimonial-meta {
+      font-size:14px;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .help-card {
+      padding:20px;
+    }
+
+    .help-card h4 {
+      margin:0 0 8px;
+      font-size:18px;
+      color:var(--text);
+    }
+
+    .help-card p {
+      margin:0 0 12px;
+      color:var(--muted);
+      line-height:1.65;
+    }
+
+    .help-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      font-size:14px;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .help-status {
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--primary-soft);
+      color:var(--primary);
+      font-size:12px;
+      font-weight:800;
+    }
+
+    footer {
+      padding:30px 0 60px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footer-box {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+      border-top:1px solid var(--line);
+      padding-top:24px;
+    }
+    
+    @media (max-width:980px) {
+      .hero-grid,
+      .tracker,
+      .two-col,
+      .auth-grid {
+        grid-template-columns:1fr;
+      }
+
+      .grid-3,
+      .hero-notes,
+      .month-grid,
+      .field-grid {
+        grid-template-columns:1fr 1fr;
+      }
+
+      .nav-links { display:none; }
+      .hero { padding:30px 0 22px; }
+      .section { padding:22px 0; }
+      .hero-visual { order:-1; }
+      .hero-visual img {
+        max-width:520px;
+        margin:0 auto 10px;
+      }
+    }
+
+    @media (max-width:640px) {
+      .container {
+        width:min(100% - 14px,var(--container));
+      }
+
+      .hero,
+      .section {
+        padding:16px 0;
+      }
+
+      .hero-grid,
+      .tracker,
+      .two-col,
+      .auth-grid,
+      .grid-3,
+      .hero-notes,
+      .month-grid,
+      .field-grid {
+        grid-template-columns:1fr;
+      }
+
+      .hero p,
+      .section-header p,
+      .text-block p,
+      .card p,
+      .note span,
+      .forum-post p,
+      .microcopy,
+      .testimonial-card p {
+        font-size:15px;
+        line-height:1.6;
+      }
+
+      .hero-actions,
+      .nav-actions {
+        flex-wrap:wrap;
+        gap:10px;
+      }
+
+      .btn {
+        width:100%;
+        min-height:52px;
+      }
+
+      .nav-actions .btn-secondary,
+      .nav-links {
+        display:none;
+      }
+
+      .mobile-cta { display:inline-flex; }
+
+      .panel,
+      .note,
+      .card,
+      .forum-post,
+      .auth-card,
+      .text-block,
+      .testimonial-card,
+      .help-card {
+        padding:15px;
+        border-radius:18px;
+        box-shadow:0 8px 20px rgba(77,43,120,.05);
+      }
+
+      .hero-visual img { border-radius:18px; }
+      .field-grid { gap:10px; }
+
+      .field input,
+      .field select,
+      .field textarea {
+        padding:12px 14px;
+        border-radius:14px;
+      }
+.auth-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: rgba(111, 63, 182, 0.12);
+  color: #6f3fb6;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+      .section-header h2 { font-size:1.85rem; }
+      .eyebrow { font-size:13px; }
+      .nav { min-height:68px; }
+    }
+
+    #forum {
+  width: 100%;
+}
+
+#forum > .container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+    .footer-links{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.footer-links a{
+  color:var(--muted);
+  font-size:14px;
+  text-decoration:underline;
+}
+
+.footer-links a:hover{
+  color:var(--primary);
+}
+
+@media (max-width: 640px){
+  .footer-box{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .footer-links{
+    justify-content:flex-start;
+  }
+}
+
+    .footer-copy{
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+}
+  </style>
+</head>
+<body>
+  <header id="topBanner" class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span>NoCrohnLimits</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#suivi">Suivi</a>
+        <a href="#recap">Récap</a>
+        <a href="#forum">Forum</a>
+        <a href="#compte">Compte</a>
+      </nav>
+     <div class="nav-actions">
+  <a class="btn btn-secondary" href="#suivi">Voir le suivi</a>
+  <a class="btn btn-primary" href="#compte">Connexion</a>
+  <a class="btn btn-primary mobile-cta" href="#suivi">Commencer</a>
+</div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Reprendre le sport avec les MICI</span>
+          <h1>Un outil simple pour avancer à son rythme.</h1>
+          <p>Suivre son énergie, comprendre ses journées et reprendre confiance grâce à une plateforme pensée pour les personnes vivant avec une MICI.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#suivi">Commencer le suivi</a>
+            <a class="btn btn-secondary" href="#forum">Voir les échanges</a>
+            <a class="btn btn-secondary" href="#recap">Voir le récap</a>
+          </div>
+          <div class="hero-notes">
+            <div class="note">
+              <strong>Suivi du jour</strong>
+              <span>Évaluer énergie, fatigue, douleurs, urgence toilette et moral.</span>
+            </div>
+            <div class="note">
+              <strong>Récap mensuel</strong>
+              <span>Visualiser les journées suivies et les tendances du mois.</span>
+            </div>
+            <div class="note">
+              <strong>Forum léger</strong>
+              <span>Partager son vécu, poser une question ou lancer un sujet.</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="homme-montagne.png" alt="Illustration projet NoCrohnLimits" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container text-block">
+        <h3>Une plateforme pensée pour vous</h3>
+        <p class="lead">NoCrohnLimits aide à suivre les journées, à mieux comprendre l’impact de l’énergie, de la fatigue et des symptômes, et à reprendre une activité physique avec plus de confiance.</p>
+        <p class="lead">L’objectif est simple : garder une vue claire sur le quotidien, retrouver des repères utiles et avancer sans pression.</p>
+      </div>
+    </section>
+
+    <section class="section" id="suivi">
+      <div class="container tracker">
+        <section class="panel">
+          <div class="section-header">
+            <h2>Suivi du jour</h2>
+            <p>Chaque critère est noté de 1 à 4. Le score total donne une indication claire pour adapter l’activité de la journée.</p>
+          </div>
+          <div class="field-grid">
+            <div class="field">
+              <label for="energie">Énergie du jour</label>
+              <select id="energie">
+                <option value="1">1 - Très basse</option>
+                <option value="2">2 - Basse</option>
+                <option value="3">3 - Moyenne</option>
+                <option value="4">4 - Bonne</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fatigue">Fatigue</label>
+              <select id="fatigue">
+                <option value="1">1 - Très forte</option>
+                <option value="2">2 - Forte</option>
+                <option value="3">3 - Modérée</option>
+                <option value="4">4 - Faible</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="symptomes">Douleurs / gêne</label>
+              <select id="symptomes">
+                <option value="1">1 - Très présentes</option>
+                <option value="2">2 - Présentes</option>
+                <option value="3">3 - Légères</option>
+                <option value="4">4 - Absentes</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="urgence">Urgence toilette</label>
+              <select id="urgence">
+                <option value="1">1 - Très forte</option>
+                <option value="2">2 - Forte</option>
+                <option value="3">3 - Modérée</option>
+                <option value="4">4 - Faible / absente</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="moral">Moral / stress</label>
+              <select id="moral">
+                <option value="1">1 - Très difficile</option>
+                <option value="2">2 - Difficile</option>
+                <option value="3">3 - Moyen</option>
+                <option value="4">4 - Bon</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="notes">Notes du jour</label>
+              <textarea id="notes" placeholder="Ex : marche de 20 min possible, séance courte, besoin de rester proche de la maison..."></textarea>
+            </div>
+          </div>
+          <div class="hero-actions" style="margin-top:1rem">
+            <button class="btn btn-primary" type="button" onclick="saveEntry()">Enregistrer</button>
+            <button class="btn btn-secondary" type="button" onclick="computeAndRender()">Recalculer</button>
+          </div>
+          <div id="resultBox" class="result green">
+            <span id="badge">VERT</span>
+            <div id="resultText">Choisis tes notes pour obtenir la couleur du jour.</div>
+            <small id="resultActivity"></small>
+          </div>
+        </section>
+        <aside class="panel">
+          <div class="stat-box"><strong id="countEntries">0</strong>
+            <span>jours enregistrés</span></div>
+          <div class="stat-box"><strong id="lastScore">0</strong>
+            <span>dernier score</span></div>
+          <div class="stat-box"><strong id="connectedState">Non</strong>
+            <span>compte connecté</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="recap">
+      <div class="container two-col">
+        <section class="panel">
+          <div class="section-header">
+            <h2>Récap mensuel</h2>
+            <p>Le récap mensuel résume les jours saisis du mois en cours, avec les couleurs, une tendance simple à lire, et un accès rapide aux dernières entrées. Tu peux afficher plus de résultats ou télécharger le récap en PDF.</p>
+          </div>
+          <div class="month-grid">
+            <div class="note"><strong id="mDays">0</strong>
+              <span>jours saisis</span></div>
+            <div class="note"><strong id="mGreen">0</strong>
+              <span>jours verts</span></div>
+            <div class="note"><strong id="mOrange">0</strong>
+              <span>jours orange</span></div>
+            <div class="note"><strong id="mRed">0</strong>
+              <span>jours rouges</span></div>
+          </div>
+          <div class="topic-row" id="recapMeta"></div>
+          <div class="hero-actions" style="margin-top:1rem">
+  <button class="btn btn-primary" type="button" onclick="toggleRecapLimit()">Afficher plus</button>
+  <button class="btn btn-secondary" type="button" onclick="downloadRecapPDF()">Télécharger en PDF</button>
+</div>
+          <div class="history-grid" id="historyList"></div>
+    </section>
+        <section class="panel" id="compte">
+          <div class="section-header">
+            <h2>Compte utilisateur</h2>
+            <p>Crée un compte, puis connecte-toi pour retrouver tes données.</p>
+          </div>
+
+         <div class="auth-grid" id="authForms">
+  <div class="auth-card">
+    <h3>Créer un compte</h3>
+    <div class="field-grid">
+      <div class="field full">
+        <label for="signupEmail">Email</label>
+        <input id="signupEmail" type="email" placeholder="ton@email.com">
+      </div>
+      <div class="field full">
+        <label for="signupPassword">Mot de passe</label>
+        <input id="signupPassword" type="password" placeholder="Minimum 6 caractères">
+      </div>
+    </div>
+    <div class="hero-actions" style="margin-top:1rem">
+      <button class="btn btn-primary" type="button" onclick="signUpUser()">Créer mon compte</button>
+    </div>
+  </div>
+
+  <div class="auth-card">
+    <h3>Se connecter</h3>
+    <div class="field-grid">
+      <div class="field full">
+        <label for="loginEmail">Email</label>
+        <input id="loginEmail" type="email" placeholder="ton@email.com">
+      </div>
+      <div class="field full">
+        <label for="loginPassword">Mot de passe</label>
+        <input id="loginPassword" type="password" placeholder="Ton mot de passe">
+      </div>
+    </div>
+    <div class="hero-actions" style="margin-top:1rem">
+      <button class="btn btn-primary" type="button" onclick="signInUser()">Connexion</button>
+    </div>
+  </div>
+</div>
+
+<div id="loggedInActions" class="hidden" style="margin-top:1rem;">
+  <p id="authStatus" class="microcopy">Aucun compte connecté.</p>
+  <div class="hero-actions" style="margin-top:1rem">
+    <button class="btn btn-secondary" type="button" onclick="signOutUser()">Déconnexion</button>
+  </section>
+</div>
+    </section>
+
+    <section class="section" id="forum">
+      <div class="container">
+        <div class="section-header">
+          <h2>Forum de discussion</h2>
+          <p>Un espace pensée pour discuter d’un sujet, partager un témoignage ou lancer une demande d’entraide.</p>
+        </div>
+
+        <div class="tabs">
+          <button class="tab-btn active" type="button" data-tab="discuter">Discuter</button>
+          <button class="tab-btn" type="button" data-tab="temoignages">Témoignages</button>
+          <button class="tab-btn" type="button" data-tab="entraide">Entraide</button>
+        </div>
+
+        <div class="tab-panel active" id="tab-discuter">
+          <div class="panel">
+            <div class="field-grid">
+              <div class="field">
+                <label for="pseudo">Pseudo</label>
+                <input id="pseudo" type="text" placeholder="Jeremy">
+              </div>
+              <div class="field">
+                <label for="topicSelect">Sujet</label>
+                <select id="topicSelect">
+                  <option>Sport et fatigue</option>
+                  <option>Moral et stress</option>
+                  <option>Urgence toilette</option>
+                  <option>Reprise après crise</option>
+                  <option>Conseils du quotidien</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="forumMessage">Message</label>
+                <textarea id="forumMessage" placeholder="Écris ici ton message..."></textarea>
+              </div>
+            </div>
+            <div class="hero-actions" style="margin-top:1rem">
+              <button class="btn btn-primary" type="button" onclick="publishTestimonial()">Publier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-temoignages">
+          <div class="panel">
+            <div class="section-header">
+              <h2>Témoignages de la communauté</h2>
+            </div>
+            <div id="testimonials-list" class="history-grid"></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-entraide">
+          <div class="panel">
+            <div class="section-header">
+              <h2>Demandes d’entraide</h2>
+              <p>Un espace pour demander de l’aide concrète sur la fatigue, le sport, les trajets, l’organisation ou le quotidien.</p>
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="helpPseudo">Pseudo</label>
+                <input id="helpPseudo" type="text" placeholder="Jeremy">
+              </div>
+
+              <div class="field">
+                <label for="helpTopic">Sujet</label>
+                <select id="helpTopic">
+                  <option>Sport et fatigue</option>
+                  <option>Moral et stress</option>
+                  <option>Urgence toilette</option>
+                  <option>Reprise après crise</option>
+                  <option>Conseils du quotidien</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="helpMessage">Ma demande</label>
+                <textarea id="helpMessage" placeholder="Ex : comment reprendre doucement après plusieurs semaines d’arrêt ?"></textarea>
+              </div>
+            </div>
+
+            <div class="hero-actions" style="margin-top:1rem">
+              <button class="btn btn-primary" type="button" onclick="publishHelpRequest()">Publier ma demande</button>
+            </div>
+          </div>
+
+          <div class="panel" style="margin-top:16px">
+            <div class="section-header">
+              <h2>Demandes publiées</h2>
+              <p>Les dernières demandes d’entraide apparaissent ici automatiquement.</p>
+            </div>
+            <div id="help-requests-list" class="history-grid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+ <footer id="contact">
+  <div class="container footer-box">
+    <div>
+      <strong>NoCrohnLimits</strong><br>
+      Reprendre son rythme avec les MICI.
+    </div>
+
+    <div>
+      Un outil pensé pour aider à mieux suivre le quotidien et reprendre confiance.
+    </div>
+
+    <div class="footer-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
+    </div>
+  </div>
+
+  <div class="container footer-copy">
+    © 2026 NoCrohnLimits
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./script.js?v=4"></script>
+</body>
+</html>
