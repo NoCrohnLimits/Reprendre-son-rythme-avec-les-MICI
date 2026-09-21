@@ -11,6 +11,15 @@
     content="Méditation, préparation mentale et accompagnement des sportifs. Des séances individuelles et collectives pour développer calme, confiance, concentration et régularité."
   >
 
+  <!-- Police Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
     :root {
       --bleu: #315BD4;
@@ -35,6 +44,7 @@
 
       --ombre: 0 12px 30px rgba(15, 31, 61, 0.10);
       --rayon: 18px;
+      --rayon-image: 12px;
     }
 
     * {
@@ -49,10 +59,38 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Poppins", Arial, Helvetica, sans-serif;
       color: var(--texte);
       background: var(--fond);
       line-height: 1.6;
+      font-weight: 400;
+    }
+
+    h1,
+    h2,
+    h3,
+    nav a,
+    .button,
+    .badge,
+    .step-number,
+    .public-item,
+    .offer-card li {
+      font-family: "Poppins", Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+    }
+
+    h2 {
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    h3 {
+      font-weight: 600;
     }
 
     a {
@@ -62,6 +100,16 @@
 
     img {
       max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Toutes les images ajoutées au site */
+    .rounded-image,
+    .hero-card img,
+    .about-logo img,
+    .content-image {
+      border-radius: var(--rayon-image);
     }
 
     section,
@@ -115,8 +163,8 @@
     .brand img {
       width: 190px;
       max-height: 62px;
-      display: block;
       object-fit: contain;
+      border-radius: 10px;
     }
 
     .desktop-nav {
@@ -128,7 +176,7 @@
     .desktop-nav a {
       color: var(--texte-clair);
       font-size: 0.9rem;
-      font-weight: 700;
+      font-weight: 600;
       white-space: nowrap;
     }
 
@@ -187,8 +235,6 @@
       display: none;
     }
 
-    /* Accessibilité clavier */
-
     a:focus-visible,
     button:focus-visible {
       outline: 3px solid var(--corail);
@@ -205,7 +251,7 @@
       border: none;
       border-radius: 10px;
       font-size: 1rem;
-      font-weight: 800;
+      font-weight: 700;
       cursor: pointer;
       transition: 0.2s ease;
     }
@@ -271,15 +317,13 @@
       background: var(--corail-clair);
       border-radius: 99px;
       font-size: 0.88rem;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     h1 {
       margin-bottom: 20px;
       color: var(--bleu-fonce);
       font-size: clamp(2.2rem, 5vw, 4.25rem);
-      line-height: 1.08;
-      letter-spacing: -1.7px;
     }
 
     h1 span {
@@ -311,7 +355,6 @@
       width: 100%;
       max-width: 360px;
       margin: 0 auto 20px;
-      display: block;
     }
 
     .hero-card h2 {
@@ -352,7 +395,7 @@
     }
 
     /* =========================
-       SERVICES PRINCIPAUX
+       SERVICES
     ========================= */
 
     .cards {
@@ -542,7 +585,7 @@
       border-left: 4px solid var(--corail);
       border-radius: 0 12px 12px 0;
       color: var(--bleu-fonce);
-      font-weight: 700;
+      font-weight: 600;
       box-shadow: 0 6px 16px rgba(15, 31, 61, 0.05);
     }
 
@@ -580,7 +623,7 @@
       display: block;
       margin-bottom: 8px;
       color: var(--bleu);
-      font-weight: 900;
+      font-weight: 700;
     }
 
     .step:nth-child(2) .step-number {
@@ -624,7 +667,6 @@
 
     .about-logo img {
       width: 100%;
-      display: block;
     }
 
     .about-text h2 {
@@ -695,7 +737,7 @@
       background: var(--corail);
       border-radius: 9px;
       color: var(--blanc);
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .mici-link:hover {
@@ -766,7 +808,7 @@
     }
 
     /* =========================
-       RESPONSIVE TABLETTE
+       RESPONSIVE
     ========================= */
 
     @media (max-width: 1050px) {
@@ -786,10 +828,6 @@
         min-height: auto;
       }
     }
-
-    /* =========================
-       RESPONSIVE MOBILE
-    ========================= */
 
     @media (max-width: 850px) {
       html {
@@ -826,12 +864,10 @@
         right: 0;
         display: flex;
         flex-direction: column;
-        gap: 0;
         padding: 8px 0;
         background: var(--blanc);
         border-top: 1px solid var(--bordure);
         box-shadow: 0 10px 20px rgba(15, 31, 61, 0.12);
-
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
@@ -854,7 +890,7 @@
         padding: 13px 20px;
         color: var(--texte-clair);
         font-size: 0.98rem;
-        font-weight: 700;
+        font-weight: 600;
         border-bottom: 1px solid #F0F2F7;
       }
 
@@ -931,10 +967,7 @@
 
 <body>
 
-  <!-- =========================
-       NAVIGATION
-  ========================= -->
-
+  <!-- Navigation -->
   <header id="site-header">
     <div class="container navbar">
 
@@ -983,10 +1016,7 @@
 
   <main>
 
-    <!-- =========================
-         ACCUEIL
-    ========================= -->
-
+    <!-- Accueil -->
     <section class="hero" id="accueil">
       <div class="container hero-grid">
 
@@ -1017,6 +1047,7 @@
 
         <aside class="hero-card">
           <img
+            class="rounded-image"
             src="IMG_3585.JPEG"
           >
 
@@ -1031,10 +1062,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         SERVICES
-    ========================= -->
-
+    <!-- Services -->
     <section id="services">
       <div class="container">
 
@@ -1087,10 +1115,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         OFFRES
-    ========================= -->
-
+    <!-- Offres -->
     <section class="offers-section" id="offres">
       <div class="container">
 
@@ -1182,10 +1207,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         PUBLIC
-    ========================= -->
-
+    <!-- Public -->
     <section class="public-section" id="public">
       <div class="container public-grid">
 
@@ -1228,10 +1250,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         MÉTHODE
-    ========================= -->
-
+    <!-- Méthode -->
     <section id="methode">
       <div class="container">
 
@@ -1283,15 +1302,13 @@
       </div>
     </section>
 
-    <!-- =========================
-         PARCOURS
-    ========================= -->
-
+    <!-- Parcours -->
     <section id="parcours">
       <div class="container about">
 
         <div class="about-logo">
           <img
+            class="rounded-image"
             src="IMG_6690.png"
           >
         </div>
@@ -1329,10 +1346,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         MICI
-    ========================= -->
-
+    <!-- MICI -->
     <section class="mici-section" id="mici">
       <div class="container mici-content">
 
@@ -1357,10 +1371,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         CONTACT
-    ========================= -->
-
+    <!-- Contact -->
     <section class="cta" id="contact">
       <div class="container">
 
@@ -1385,10 +1396,7 @@
 
   </main>
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
+  <!-- Footer -->
   <footer>
     <div class="container footer-content">
       <p>
@@ -1402,10 +1410,7 @@
     </div>
   </footer>
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
-
+  <!-- JavaScript -->
   <script>
     const header = document.getElementById("site-header");
     const mobileMenuButton = document.getElementById("mobile-menu-button");
@@ -1431,58 +1436,7 @@
           mobileNav.classList.remove("open");
           mobileMenuButton.classList.remove("active");
           mobileMenuButton.setAttribute("aria-expanded", "false");
-        }
-
-        if (difference < -4 || currentScrollY <= 90) {
-          header.classList.remove("header-hidden");
-        }
-      } else {
-        header.classList.remove("header-hidden");
-      }
-
-      lastScrollY = currentScrollY;
-      ticking = false;
-    }
-
-    window.addEventListener("scroll", () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateHeader);
-        ticking = true;
-      }
-    }, { passive: true });
-
-    mobileMenuButton.addEventListener("click", () => {
-      const menuIsOpen = mobileNav.classList.toggle("open");
-
-      mobileMenuButton.classList.toggle("active", menuIsOpen);
-      mobileMenuButton.setAttribute("aria-expanded", menuIsOpen);
-      mobileMenuButton.setAttribute(
-        "aria-label",
-        menuIsOpen ? "Fermer le menu" : "Ouvrir le menu"
-      );
-
-      header.classList.remove("header-hidden");
-    });
-
-    document.querySelectorAll(".mobile-nav a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileNav.classList.remove("open");
-        mobileMenuButton.classList.remove("active");
-        mobileMenuButton.setAttribute("aria-expanded", "false");
-        mobileMenuButton.setAttribute("aria-label", "Ouvrir le menu");
-      });
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 850) {
-        mobileNav.classList.remove("open");
-        mobileMenuButton.classList.remove("active");
-        mobileMenuButton.setAttribute("aria-expanded", "false");
-        mobileMenuButton.setAttribute("aria-label", "Ouvrir le menu");
-        header.classList.remove("header-hidden");
-      }
-    });
-  </script>
-
-</body>
-</html>
+          mobileMenuButton.setAttribute(
+            "aria-label",
+            "Ouvrir le menu"
+          );
