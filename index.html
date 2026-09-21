@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="NoCrohnLimits propose des accompagnements en méditation, préparation mentale et gestion du stress pour les sportifs et toute personne souhaitant avancer avec plus de calme et de confiance."
+    content="Méditation, préparation mentale et accompagnement des sportifs. Des séances individuelles et collectives pour développer calme, confiance, concentration et régularité."
   >
 
   <style>
@@ -22,11 +22,12 @@
       --corail-clair: #FFE4DE;
 
       --vert: #238D69;
+      --vert-fonce: #176348;
       --vert-clair: #DCEFE7;
 
       --creme: #FFF9F2;
-
       --blanc: #FFFFFF;
+
       --texte: #243047;
       --texte-clair: #5D687B;
       --fond: #F7F9FF;
@@ -121,12 +122,12 @@
     .desktop-nav {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 17px;
     }
 
     .desktop-nav a {
       color: var(--texte-clair);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 700;
       white-space: nowrap;
     }
@@ -147,7 +148,7 @@
       background: var(--bleu-fonce);
     }
 
-    /* Bouton hamburger */
+    /* Menu mobile */
 
     .mobile-menu-button {
       display: none;
@@ -182,10 +183,16 @@
       transform: translateY(-7px) rotate(-45deg);
     }
 
-    /* Menu mobile */
-
     .mobile-nav {
       display: none;
+    }
+
+    /* Accessibilité clavier */
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--corail);
+      outline-offset: 3px;
     }
 
     /* =========================
@@ -345,7 +352,7 @@
     }
 
     /* =========================
-       SERVICES
+       SERVICES PRINCIPAUX
     ========================= */
 
     .cards {
@@ -363,7 +370,8 @@
       transition: 0.2s ease;
     }
 
-    .card:hover {
+    .card:hover,
+    .offer-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--ombre);
     }
@@ -413,6 +421,87 @@
 
     .card p {
       color: var(--texte-clair);
+    }
+
+    /* =========================
+       OFFRES
+    ========================= */
+
+    .offers-section {
+      background: var(--blanc);
+    }
+
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .offer-card {
+      padding: 25px;
+      background: var(--fond);
+      border: 1px solid var(--bordure);
+      border-radius: var(--rayon);
+      box-shadow: 0 8px 20px rgba(15, 31, 61, 0.05);
+      transition: 0.2s ease;
+    }
+
+    .offer-card:nth-child(1) {
+      border-top: 4px solid var(--bleu);
+    }
+
+    .offer-card:nth-child(2) {
+      border-top: 4px solid var(--corail);
+    }
+
+    .offer-card:nth-child(3) {
+      border-top: 4px solid var(--vert);
+    }
+
+    .offer-card:nth-child(4) {
+      border-top: 4px solid var(--bleu-fonce);
+    }
+
+    .offer-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 15px;
+      border-radius: 14px;
+      background: var(--bleu-clair);
+      font-size: 1.55rem;
+    }
+
+    .offer-card:nth-child(2) .offer-icon {
+      background: var(--corail-clair);
+    }
+
+    .offer-card:nth-child(3) .offer-icon {
+      background: var(--vert-clair);
+    }
+
+    .offer-card h3 {
+      min-height: 54px;
+      margin-bottom: 10px;
+      color: var(--bleu-fonce);
+      font-size: 1.15rem;
+    }
+
+    .offer-card p {
+      min-height: 145px;
+      color: var(--texte-clair);
+      font-size: 0.95rem;
+    }
+
+    .offer-card ul {
+      padding-left: 18px;
+      color: var(--texte-clair);
+      font-size: 0.9rem;
+    }
+
+    .offer-card li {
+      margin-bottom: 7px;
     }
 
     /* =========================
@@ -555,7 +644,7 @@
       background: var(--blanc);
       border-left: 4px solid var(--vert);
       border-radius: 0 12px 12px 0;
-      color: #245A47;
+      color: var(--vert-fonce);
       font-size: 0.94rem;
     }
 
@@ -677,11 +766,32 @@
     }
 
     /* =========================
+       RESPONSIVE TABLETTE
+    ========================= */
+
+    @media (max-width: 1050px) {
+      .desktop-nav {
+        gap: 11px;
+      }
+
+      .desktop-nav a {
+        font-size: 0.82rem;
+      }
+
+      .offers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .offer-card p {
+        min-height: auto;
+      }
+    }
+
+    /* =========================
        RESPONSIVE MOBILE
     ========================= */
 
     @media (max-width: 850px) {
-
       html {
         scroll-padding-top: 68px;
       }
@@ -689,12 +799,6 @@
       section,
       [id] {
         scroll-margin-top: 68px;
-      }
-
-      header {
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
       }
 
       .navbar {
@@ -780,8 +884,17 @@
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
+      .offers-grid {
+        grid-template-columns: 1fr;
+      }
 
+      .offer-card h3 {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
       .navbar {
         min-height: 58px;
       }
@@ -818,7 +931,10 @@
 
 <body>
 
-  <!-- Navigation -->
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
   <header id="site-header">
     <div class="container navbar">
 
@@ -830,6 +946,7 @@
 
       <nav class="desktop-nav" aria-label="Navigation principale">
         <a href="#services">Services</a>
+        <a href="#offres">Offres</a>
         <a href="#public">Pour qui ?</a>
         <a href="#methode">Méthode</a>
         <a href="#parcours">Mon parcours</a>
@@ -854,6 +971,7 @@
         aria-label="Navigation mobile"
       >
         <a href="#services">Services</a>
+        <a href="#offres">Offres</a>
         <a href="#public">Pour qui ?</a>
         <a href="#methode">Méthode</a>
         <a href="#parcours">Mon parcours</a>
@@ -865,7 +983,10 @@
 
   <main>
 
-    <!-- Accueil -->
+    <!-- =========================
+         ACCUEIL
+    ========================= -->
+
     <section class="hero" id="accueil">
       <div class="container hero-grid">
 
@@ -884,8 +1005,8 @@
           </p>
 
           <div class="hero-buttons">
-            <a class="button button-primary" href="#services">
-              Découvrir les accompagnements
+            <a class="button button-primary" href="#offres">
+              Découvrir les offres
             </a>
 
             <a class="button button-secondary" href="#contact">
@@ -910,7 +1031,10 @@
       </div>
     </section>
 
-    <!-- Services -->
+    <!-- =========================
+         SERVICES
+    ========================= -->
+
     <section id="services">
       <div class="container">
 
@@ -963,7 +1087,105 @@
       </div>
     </section>
 
-    <!-- Public -->
+    <!-- =========================
+         OFFRES
+    ========================= -->
+
+    <section class="offers-section" id="offres">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Ce que je propose</h2>
+
+          <p>
+            Des séances accessibles et progressives, en individuel ou en groupe,
+            pour travailler sur le calme, la confiance, la concentration
+            et la régularité.
+          </p>
+        </div>
+
+        <div class="offers-grid">
+
+          <article class="offer-card">
+            <div class="offer-icon">🧘</div>
+
+            <h3>Méditation individuelle</h3>
+
+            <p>
+              Un accompagnement personnalisé pour découvrir la méditation,
+              apprendre à se recentrer et installer une pratique simple
+              dans son quotidien.
+            </p>
+
+            <ul>
+              <li>Séance adaptée à votre niveau</li>
+              <li>Respiration et méditation guidée</li>
+              <li>Exercice simple à refaire chez soi</li>
+            </ul>
+          </article>
+
+          <article class="offer-card">
+            <div class="offer-icon">👥</div>
+
+            <h3>Méditation de groupe</h3>
+
+            <p>
+              Des séances en petit groupe, en présentiel ou en visioconférence,
+              autour d’un thème concret comme le calme, le sommeil
+              ou la concentration.
+            </p>
+
+            <ul>
+              <li>Durée de 30 à 45 minutes</li>
+              <li>Accessible aux débutants</li>
+              <li>Temps d’échange facultatif</li>
+            </ul>
+          </article>
+
+          <article class="offer-card">
+            <div class="offer-icon">🧠</div>
+
+            <h3>Préparation mentale</h3>
+
+            <p>
+              Un accompagnement pour mieux gérer la pression, renforcer
+              la confiance, clarifier un objectif et passer progressivement
+              à l’action.
+            </p>
+
+            <ul>
+              <li>Objectif clairement défini</li>
+              <li>Exercices mentaux personnalisés</li>
+              <li>Plan d’action entre les séances</li>
+            </ul>
+          </article>
+
+          <article class="offer-card">
+            <div class="offer-icon">🏊</div>
+
+            <h3>Préparation mentale sportive</h3>
+
+            <p>
+              Un accompagnement destiné aux sportifs amateurs qui souhaitent
+              mieux gérer les entraînements, la compétition et les périodes
+              de doute.
+            </p>
+
+            <ul>
+              <li>Préparation avant compétition</li>
+              <li>Gestion du stress et de la pression</li>
+              <li>Concentration et régularité</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         PUBLIC
+    ========================= -->
+
     <section class="public-section" id="public">
       <div class="container public-grid">
 
@@ -1006,7 +1228,10 @@
       </div>
     </section>
 
-    <!-- Méthode -->
+    <!-- =========================
+         MÉTHODE
+    ========================= -->
+
     <section id="methode">
       <div class="container">
 
@@ -1058,7 +1283,10 @@
       </div>
     </section>
 
-    <!-- Parcours -->
+    <!-- =========================
+         PARCOURS
+    ========================= -->
+
     <section id="parcours">
       <div class="container about">
 
@@ -1072,15 +1300,17 @@
           <h2>Une approche nourrie par mon parcours</h2>
 
           <p>
-            Mon parcours avec la maladie de Crohn m’a conduit à découvrir
-            la méditation, la préparation mentale et l’importance d’une
-            progression adaptée à chaque personne.
+            Je pratique les sports d’endurance, notamment la natation,
+            le vélo, la course à pied et le triathlon. Cette expérience
+            m’aide à comprendre les défis rencontrés par les sportifs amateurs :
+            pression, doute, motivation et régularité.
           </p>
 
           <p>
-            Ces outils m’ont personnellement aidé à mieux gérer certaines
-            périodes difficiles, à retrouver confiance et à avancer étape
-            par étape.
+            Mon parcours avec la maladie de Crohn m’a également conduit
+            à découvrir la méditation et la préparation mentale. Ces outils
+            m’ont personnellement aidé à mieux gérer certaines périodes
+            difficiles, à retrouver confiance et à avancer étape par étape.
           </p>
 
           <p>
@@ -1099,7 +1329,10 @@
       </div>
     </section>
 
-    <!-- MICI -->
+    <!-- =========================
+         MICI
+    ========================= -->
+
     <section class="mici-section" id="mici">
       <div class="container mici-content">
 
@@ -1124,7 +1357,10 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
     <section class="cta" id="contact">
       <div class="container">
 
@@ -1149,11 +1385,15 @@
 
   </main>
 
-  <!-- Footer -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
     <div class="container footer-content">
       <p>
-        <strong>NoCrohnLimits</strong> — Méditation, préparation mentale et progression
+        <strong>NoCrohnLimits</strong> —
+        Méditation, préparation mentale et progression
       </p>
 
       <p>
@@ -1162,7 +1402,10 @@
     </div>
   </footer>
 
-  <!-- JavaScript navigation mobile et bannière -->
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
   <script>
     const header = document.getElementById("site-header");
     const mobileMenuButton = document.getElementById("mobile-menu-button");
@@ -1182,10 +1425,6 @@
       }
 
       if (window.innerWidth <= 850) {
-        /*
-          En descendant, la bannière disparaît.
-          En remontant, elle réapparaît.
-        */
         if (currentScrollY > 90 && difference > 4) {
           header.classList.add("header-hidden");
 
@@ -1217,6 +1456,10 @@
 
       mobileMenuButton.classList.toggle("active", menuIsOpen);
       mobileMenuButton.setAttribute("aria-expanded", menuIsOpen);
+      mobileMenuButton.setAttribute(
+        "aria-label",
+        menuIsOpen ? "Fermer le menu" : "Ouvrir le menu"
+      );
 
       header.classList.remove("header-hidden");
     });
@@ -1226,6 +1469,7 @@
         mobileNav.classList.remove("open");
         mobileMenuButton.classList.remove("active");
         mobileMenuButton.setAttribute("aria-expanded", "false");
+        mobileMenuButton.setAttribute("aria-label", "Ouvrir le menu");
       });
     });
 
@@ -1234,6 +1478,7 @@
         mobileNav.classList.remove("open");
         mobileMenuButton.classList.remove("active");
         mobileMenuButton.setAttribute("aria-expanded", "false");
+        mobileMenuButton.setAttribute("aria-label", "Ouvrir le menu");
         header.classList.remove("header-hidden");
       }
     });
