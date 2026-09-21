@@ -24,7 +24,6 @@
       --vert: #238D69;
       --vert-clair: #DCEFE7;
 
-      --jaune: #F6D98B;
       --creme: #FFF9F2;
 
       --blanc: #FFFFFF;
@@ -45,6 +44,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 85px;
     }
 
     body {
@@ -63,19 +63,37 @@
       max-width: 100%;
     }
 
+    section,
+    [id] {
+      scroll-margin-top: 85px;
+    }
+
     .container {
       width: min(1120px, 92%);
       margin: 0 auto;
     }
 
-    /* Navigation */
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
       background: rgba(255, 255, 255, 0.97);
       border-bottom: 1px solid var(--bordure);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    header.header-hidden {
+      transform: translateY(-100%);
+    }
+
+    header.header-scrolled {
+      box-shadow: 0 5px 18px rgba(15, 31, 61, 0.12);
     }
 
     .navbar {
@@ -84,6 +102,13 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+      position: relative;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
     }
 
     .brand img {
@@ -93,35 +118,79 @@
       object-fit: contain;
     }
 
-    nav {
+    .desktop-nav {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
     }
 
-    nav a {
+    .desktop-nav a {
       color: var(--texte-clair);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 700;
+      white-space: nowrap;
     }
 
-    nav a:hover {
+    .desktop-nav a:hover {
       color: var(--bleu);
     }
 
-    .nav-button {
+    .desktop-nav .nav-button {
       color: var(--blanc);
       background: var(--bleu);
       padding: 11px 17px;
       border-radius: 9px;
     }
 
-    .nav-button:hover {
+    .desktop-nav .nav-button:hover {
       color: var(--blanc);
       background: var(--bleu-fonce);
     }
 
-    /* Boutons */
+    /* Bouton hamburger */
+
+    .mobile-menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      padding: 9px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--bleu-clair);
+      cursor: pointer;
+    }
+
+    .mobile-menu-button span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 4px auto;
+      background: var(--bleu-fonce);
+      border-radius: 4px;
+      transition: 0.25s ease;
+    }
+
+    .mobile-menu-button.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile-menu-button.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-button.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Menu mobile */
+
+    .mobile-nav {
+      display: none;
+    }
+
+    /* =========================
+       BOUTONS
+    ========================= */
 
     .button {
       display: inline-block;
@@ -168,7 +237,9 @@
       transform: translateY(-2px);
     }
 
-    /* Hero */
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       padding: 85px 0 70px;
@@ -248,7 +319,9 @@
       text-align: center;
     }
 
-    /* Sections générales */
+    /* =========================
+       SECTIONS
+    ========================= */
 
     section {
       padding: 75px 0;
@@ -271,7 +344,9 @@
       font-size: 1.05rem;
     }
 
-    /* Services */
+    /* =========================
+       SERVICES
+    ========================= */
 
     .cards {
       display: grid;
@@ -340,7 +415,9 @@
       color: var(--texte-clair);
     }
 
-    /* Public */
+    /* =========================
+       PUBLIC
+    ========================= */
 
     .public-section {
       background: var(--creme);
@@ -384,7 +461,9 @@
       border-left-color: var(--vert);
     }
 
-    /* Méthode */
+    /* =========================
+       MÉTHODE
+    ========================= */
 
     .steps {
       display: grid;
@@ -432,7 +511,9 @@
       color: var(--texte-clair);
     }
 
-    /* Parcours */
+    /* =========================
+       PARCOURS
+    ========================= */
 
     #parcours {
       background: var(--vert-clair);
@@ -478,7 +559,9 @@
       font-size: 0.94rem;
     }
 
-    /* Section MICI secondaire */
+    /* =========================
+       MICI
+    ========================= */
 
     .mici-section {
       position: relative;
@@ -530,7 +613,9 @@
       background: var(--corail-fonce);
     }
 
-    /* Contact */
+    /* =========================
+       CONTACT
+    ========================= */
 
     .cta {
       padding: 70px 0;
@@ -569,7 +654,9 @@
       background: var(--corail-fonce);
     }
 
-    /* Footer */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       padding: 30px 0;
@@ -589,11 +676,88 @@
       color: var(--blanc);
     }
 
-    /* Responsive */
+    /* =========================
+       RESPONSIVE MOBILE
+    ========================= */
 
     @media (max-width: 850px) {
-      nav {
+
+      html {
+        scroll-padding-top: 68px;
+      }
+
+      section,
+      [id] {
+        scroll-margin-top: 68px;
+      }
+
+      header {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .navbar {
+        min-height: 64px;
+        padding: 7px 0;
+      }
+
+      .brand img {
+        width: 155px;
+        max-height: 48px;
+      }
+
+      .desktop-nav {
         display: none;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .mobile-nav {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+        background: var(--blanc);
+        border-top: 1px solid var(--bordure);
+        box-shadow: 0 10px 20px rgba(15, 31, 61, 0.12);
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease,
+          visibility 0.25s ease;
+      }
+
+      .mobile-nav.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .mobile-nav a {
+        display: block;
+        padding: 13px 20px;
+        color: var(--texte-clair);
+        font-size: 0.98rem;
+        font-weight: 700;
+        border-bottom: 1px solid #F0F2F7;
+      }
+
+      .mobile-nav a:hover,
+      .mobile-nav a:focus {
+        color: var(--bleu);
+        background: var(--bleu-clair);
       }
 
       .hero-grid,
@@ -617,8 +781,19 @@
     }
 
     @media (max-width: 480px) {
+
+      .navbar {
+        min-height: 58px;
+      }
+
       .brand img {
-        width: 165px;
+        width: 145px;
+        max-height: 43px;
+      }
+
+      .mobile-menu-button {
+        width: 40px;
+        height: 40px;
       }
 
       .hero-buttons {
@@ -644,7 +819,7 @@
 <body>
 
   <!-- Navigation -->
-  <header>
+  <header id="site-header">
     <div class="container navbar">
 
       <a class="brand" href="#accueil" aria-label="Accueil NoCrohnLimits">
@@ -653,12 +828,36 @@
         >
       </a>
 
-      <nav>
+      <nav class="desktop-nav" aria-label="Navigation principale">
         <a href="#services">Services</a>
         <a href="#public">Pour qui ?</a>
         <a href="#methode">Méthode</a>
         <a href="#parcours">Mon parcours</a>
-        <a href="#contact" class="nav-button">Me contacter</a>
+        <a href="#contact" class="nav-button">Contact</a>
+      </nav>
+
+      <button
+        class="mobile-menu-button"
+        id="mobile-menu-button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        type="button"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav
+        class="mobile-nav"
+        id="mobile-nav"
+        aria-label="Navigation mobile"
+      >
+        <a href="#services">Services</a>
+        <a href="#public">Pour qui ?</a>
+        <a href="#methode">Méthode</a>
+        <a href="#parcours">Mon parcours</a>
+        <a href="#contact">Me contacter</a>
       </nav>
 
     </div>
@@ -859,7 +1058,7 @@
       </div>
     </section>
 
-    <!-- Parcours personnel -->
+    <!-- Parcours -->
     <section id="parcours">
       <div class="container about">
 
@@ -900,7 +1099,7 @@
       </div>
     </section>
 
-    <!-- Rubrique MICI secondaire -->
+    <!-- MICI -->
     <section class="mici-section" id="mici">
       <div class="container mici-content">
 
@@ -937,8 +1136,8 @@
             les ateliers de méditation ou les accompagnements de préparation mentale.
           </p>
 
-          
-          <a class="button button-coral"
+          <a
+            class="button button-coral"
             href="mailto:jeremy@nocrohnlimits.fr?subject=Demande%20d%27information%20NoCrohnLimits"
           >
             Me contacter
@@ -950,7 +1149,7 @@
 
   </main>
 
-  <!-- Pied de page -->
+  <!-- Footer -->
   <footer>
     <div class="container footer-content">
       <p>
@@ -962,6 +1161,83 @@
       </p>
     </div>
   </footer>
+
+  <!-- JavaScript navigation mobile et bannière -->
+  <script>
+    const header = document.getElementById("site-header");
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileNav = document.getElementById("mobile-nav");
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+      const currentScrollY = window.scrollY;
+      const difference = currentScrollY - lastScrollY;
+
+      if (currentScrollY > 10) {
+        header.classList.add("header-scrolled");
+      } else {
+        header.classList.remove("header-scrolled");
+      }
+
+      if (window.innerWidth <= 850) {
+        /*
+          En descendant, la bannière disparaît.
+          En remontant, elle réapparaît.
+        */
+        if (currentScrollY > 90 && difference > 4) {
+          header.classList.add("header-hidden");
+
+          mobileNav.classList.remove("open");
+          mobileMenuButton.classList.remove("active");
+          mobileMenuButton.setAttribute("aria-expanded", "false");
+        }
+
+        if (difference < -4 || currentScrollY <= 90) {
+          header.classList.remove("header-hidden");
+        }
+      } else {
+        header.classList.remove("header-hidden");
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    mobileMenuButton.addEventListener("click", () => {
+      const menuIsOpen = mobileNav.classList.toggle("open");
+
+      mobileMenuButton.classList.toggle("active", menuIsOpen);
+      mobileMenuButton.setAttribute("aria-expanded", menuIsOpen);
+
+      header.classList.remove("header-hidden");
+    });
+
+    document.querySelectorAll(".mobile-nav a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileNav.classList.remove("open");
+        mobileMenuButton.classList.remove("active");
+        mobileMenuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 850) {
+        mobileNav.classList.remove("open");
+        mobileMenuButton.classList.remove("active");
+        mobileMenuButton.setAttribute("aria-expanded", "false");
+        header.classList.remove("header-hidden");
+      }
+    });
+  </script>
 
 </body>
 </html>
