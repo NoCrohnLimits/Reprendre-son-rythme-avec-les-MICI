@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>NoCrohnLimits | Méditation, mental et mouvement</title>
+  <title>NoCrohnLimits | Méditation et préparation mentale</title>
 
   <meta
     name="description"
-    content="NoCrohnLimits propose des ressources de méditation, préparation mentale et mouvement pour retrouver confiance, calme et élan au quotidien."
+    content="NoCrohnLimits propose des accompagnements en méditation, préparation mentale et gestion du stress pour les sportifs et toute personne souhaitant avancer avec plus de calme et de confiance."
   >
 
   <style>
     :root {
-      --bleu: #2f5bd3;
-      --bleu-fonce: #0f1f3d;
+      --bleu: #315bd4;
+      --bleu-fonce: #10203d;
       --bleu-clair: #eaf0ff;
       --blanc: #ffffff;
       --texte: #1b2434;
       --texte-clair: #5d687b;
       --fond: #f7f9ff;
-      --vert: #1f9d73;
+      --vert: #238d69;
+      --bordure: #e4eaf5;
       --ombre: 0 12px 30px rgba(15, 31, 61, 0.10);
       --rayon: 18px;
     }
@@ -37,8 +38,8 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--fond);
       color: var(--texte);
+      background: var(--fond);
       line-height: 1.6;
     }
 
@@ -47,19 +48,23 @@
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+    }
+
     .container {
       width: min(1120px, 92%);
-      margin: auto;
+      margin: 0 auto;
     }
 
     /* Navigation */
 
     header {
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid #e8edf8;
       position: sticky;
       top: 0;
       z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--bordure);
     }
 
     .navbar {
@@ -67,25 +72,25 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 25px;
+      gap: 24px;
     }
 
     .brand img {
       width: 190px;
       max-height: 62px;
-      object-fit: contain;
       display: block;
+      object-fit: contain;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 20px;
     }
 
     nav a {
-      font-size: 0.95rem;
       color: var(--texte-clair);
+      font-size: 0.95rem;
       font-weight: 700;
     }
 
@@ -94,8 +99,8 @@
     }
 
     .nav-button {
-      background: var(--bleu);
       color: var(--blanc);
+      background: var(--bleu);
       padding: 11px 17px;
       border-radius: 9px;
     }
@@ -109,30 +114,31 @@
 
     .button {
       display: inline-block;
-      border: none;
-      cursor: pointer;
       padding: 14px 22px;
+      border: none;
       border-radius: 10px;
       font-size: 1rem;
       font-weight: 800;
+      cursor: pointer;
       transition: 0.2s ease;
     }
 
     .button-primary {
-      background: var(--bleu);
       color: var(--blanc);
+      background: var(--bleu);
       box-shadow: 0 8px 18px rgba(47, 91, 211, 0.22);
     }
 
     .button-primary:hover {
-      transform: translateY(-2px);
+      color: var(--blanc);
       background: var(--bleu-fonce);
+      transform: translateY(-2px);
     }
 
     .button-secondary {
-      border: 2px solid var(--bleu);
       color: var(--bleu);
       background: transparent;
+      border: 2px solid var(--bleu);
     }
 
     .button-secondary:hover {
@@ -142,8 +148,7 @@
     /* Hero */
 
     .hero {
-      padding: 85px 0 65px;
-      overflow: hidden;
+      padding: 85px 0 70px;
       background:
         radial-gradient(circle at 85% 10%, #dfe8ff 0, transparent 34%),
         linear-gradient(135deg, #f8faff 0%, #edf3ff 100%);
@@ -158,32 +163,32 @@
 
     .badge {
       display: inline-block;
-      background: var(--bleu-clair);
+      margin-bottom: 18px;
+      padding: 8px 14px;
       color: var(--bleu);
+      background: var(--bleu-clair);
       border-radius: 99px;
-      padding: 8px 13px;
       font-size: 0.88rem;
       font-weight: 800;
-      margin-bottom: 18px;
     }
 
     h1 {
+      margin-bottom: 20px;
+      color: var(--bleu-fonce);
       font-size: clamp(2.2rem, 5vw, 4.25rem);
       line-height: 1.08;
-      color: var(--bleu-fonce);
       letter-spacing: -1.7px;
-      margin-bottom: 20px;
     }
 
-    .hero h1 span {
+    h1 span {
       color: var(--bleu);
     }
 
     .hero-text {
-      max-width: 640px;
-      font-size: 1.1rem;
-      color: var(--texte-clair);
+      max-width: 660px;
       margin-bottom: 28px;
+      color: var(--texte-clair);
+      font-size: 1.1rem;
     }
 
     .hero-buttons {
@@ -193,11 +198,11 @@
     }
 
     .hero-card {
-      background: var(--blanc);
       padding: 30px;
+      background: var(--blanc);
+      border: 1px solid var(--bordure);
       border-radius: 24px;
       box-shadow: var(--ombre);
-      border: 1px solid #e9eef9;
     }
 
     .hero-card img {
@@ -205,43 +210,44 @@
       max-width: 360px;
       margin: 0 auto 20px;
       display: block;
-      object-fit: contain;
     }
 
     .hero-card h2 {
-      text-align: center;
+      margin-bottom: 8px;
       color: var(--bleu-fonce);
       font-size: 1.45rem;
-      margin-bottom: 8px;
+      text-align: center;
     }
 
     .hero-card p {
-      text-align: center;
       color: var(--texte-clair);
+      text-align: center;
     }
 
-    /* Sections */
+    /* Sections générales */
 
     section {
       padding: 75px 0;
     }
 
     .section-title {
-      max-width: 760px;
+      max-width: 780px;
       margin-bottom: 38px;
     }
 
     .section-title h2 {
+      margin-bottom: 13px;
       color: var(--bleu-fonce);
       font-size: clamp(1.8rem, 3vw, 2.7rem);
       line-height: 1.15;
-      margin-bottom: 13px;
     }
 
     .section-title p {
       color: var(--texte-clair);
       font-size: 1.05rem;
     }
+
+    /* Services */
 
     .cards {
       display: grid;
@@ -250,10 +256,10 @@
     }
 
     .card {
-      background: var(--blanc);
-      border: 1px solid #e5eaf4;
-      border-radius: var(--rayon);
       padding: 28px;
+      background: var(--blanc);
+      border: 1px solid var(--bordure);
+      border-radius: var(--rayon);
       box-shadow: 0 8px 20px rgba(15, 31, 61, 0.05);
     }
 
@@ -262,62 +268,64 @@
       height: 52px;
       display: grid;
       place-items: center;
-      background: var(--bleu-clair);
-      color: var(--bleu);
-      border-radius: 14px;
-      font-size: 1.65rem;
       margin-bottom: 18px;
+      background: var(--bleu-clair);
+      border-radius: 14px;
+      color: var(--bleu);
+      font-size: 1.65rem;
     }
 
     .card h3 {
+      margin-bottom: 10px;
       color: var(--bleu-fonce);
       font-size: 1.25rem;
-      margin-bottom: 10px;
     }
 
     .card p {
       color: var(--texte-clair);
     }
 
-    /* Bandeau */
+    /* Public */
 
-    .focus {
-      background: var(--bleu-fonce);
-      color: var(--blanc);
+    .public-section {
+      background: #eef3ff;
     }
 
-    .focus-grid {
+    .public-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      grid-template-columns: 0.9fr 1.1fr;
       align-items: center;
+      gap: 50px;
     }
 
-    .focus h2 {
+    .public-grid h2 {
+      margin-bottom: 16px;
+      color: var(--bleu-fonce);
       font-size: clamp(1.8rem, 3vw, 2.6rem);
       line-height: 1.15;
-      margin-bottom: 17px;
     }
 
-    .focus p {
-      color: #dbe4fa;
-      margin-bottom: 22px;
+    .public-grid p {
+      margin-bottom: 15px;
+      color: var(--texte-clair);
     }
 
-    .list {
+    .public-list {
       display: grid;
-      gap: 14px;
+      gap: 13px;
     }
 
-    .list-item {
-      background: rgba(255, 255, 255, 0.09);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 12px;
-      padding: 15px;
+    .public-item {
+      padding: 16px 18px;
+      background: var(--blanc);
+      border-left: 4px solid var(--bleu);
+      border-radius: 0 12px 12px 0;
+      color: var(--bleu-fonce);
       font-weight: 700;
+      box-shadow: 0 6px 16px rgba(15, 31, 61, 0.05);
     }
 
-    /* Accompagnement */
+    /* Méthode */
 
     .steps {
       display: grid;
@@ -327,78 +335,41 @@
 
     .step {
       padding: 24px;
-      border-left: 4px solid var(--bleu);
       background: var(--blanc);
+      border-left: 4px solid var(--bleu);
       border-radius: 0 var(--rayon) var(--rayon) 0;
       box-shadow: 0 7px 18px rgba(15, 31, 61, 0.05);
     }
 
     .step-number {
       display: block;
+      margin-bottom: 8px;
       color: var(--bleu);
       font-weight: 900;
-      margin-bottom: 8px;
     }
 
     .step h3 {
-      color: var(--bleu-fonce);
       margin-bottom: 8px;
+      color: var(--bleu-fonce);
     }
 
     .step p {
       color: var(--texte-clair);
     }
 
-    /* CTA */
-
-    .cta {
-      padding: 70px 0;
-    }
-
-    .cta-box {
-      background: linear-gradient(135deg, var(--bleu), #6b8cff);
-      border-radius: 26px;
-      padding: 52px 8%;
-      color: var(--blanc);
-      text-align: center;
-      box-shadow: var(--ombre);
-    }
-
-    .cta-box h2 {
-      font-size: clamp(1.9rem, 4vw, 3rem);
-      margin-bottom: 14px;
-    }
-
-    .cta-box p {
-      max-width: 680px;
-      margin: 0 auto 26px;
-      color: #edf1ff;
-      font-size: 1.06rem;
-    }
-
-    .cta-box .button {
-      background: var(--blanc);
-      color: var(--bleu);
-    }
-
-    .cta-box .button:hover {
-      background: var(--bleu-fonce);
-      color: var(--blanc);
-    }
-
-    /* À propos */
+    /* Parcours personnel */
 
     .about {
       display: grid;
       grid-template-columns: 0.8fr 1.2fr;
-      gap: 48px;
       align-items: center;
+      gap: 48px;
     }
 
     .about-logo {
+      padding: 35px;
       background: var(--blanc);
       border-radius: 24px;
-      padding: 35px;
       box-shadow: var(--ombre);
     }
 
@@ -408,31 +379,104 @@
     }
 
     .about-text h2 {
+      margin-bottom: 16px;
       color: var(--bleu-fonce);
       font-size: clamp(1.8rem, 3vw, 2.7rem);
-      margin-bottom: 16px;
     }
 
     .about-text p {
-      color: var(--texte-clair);
       margin-bottom: 14px;
+      color: var(--texte-clair);
     }
 
     .note {
+      margin-top: 20px;
+      padding: 16px;
       background: #eefaf5;
       border-left: 4px solid var(--vert);
-      padding: 16px;
       border-radius: 0 12px 12px 0;
       color: #245a47;
-      margin-top: 20px;
       font-size: 0.94rem;
+    }
+
+    /* MICI en rubrique secondaire */
+
+    .mici-section {
+      background: var(--bleu-fonce);
+      color: var(--blanc);
+    }
+
+    .mici-content {
+      max-width: 850px;
+    }
+
+    .mici-content h2 {
+      margin-bottom: 16px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.15;
+    }
+
+    .mici-content p {
+      margin-bottom: 14px;
+      color: #dbe4fa;
+    }
+
+    .mici-link {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 18px;
+      background: var(--blanc);
+      border-radius: 9px;
+      color: var(--bleu);
+      font-weight: 800;
+    }
+
+    .mici-link:hover {
+      background: var(--bleu-clair);
+    }
+
+    /* Contact */
+
+    .cta {
+      padding: 70px 0;
+    }
+
+    .cta-box {
+      padding: 52px 8%;
+      background: linear-gradient(135deg, var(--bleu), #6b8cff);
+      border-radius: 26px;
+      color: var(--blanc);
+      text-align: center;
+      box-shadow: var(--ombre);
+    }
+
+    .cta-box h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+    }
+
+    .cta-box p {
+      max-width: 700px;
+      margin: 0 auto 26px;
+      color: #edf1ff;
+      font-size: 1.06rem;
+    }
+
+    .cta-box .button {
+      color: var(--bleu);
+      background: var(--blanc);
+    }
+
+    .cta-box .button:hover {
+      color: var(--blanc);
+      background: var(--bleu-fonce);
     }
 
     /* Footer */
 
     footer {
-      background: #09162d;
       padding: 30px 0;
+      background: #09162d;
       color: #bac7df;
       font-size: 0.92rem;
     }
@@ -440,15 +484,15 @@
     .footer-content {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 20px;
     }
 
     .footer-content strong {
       color: var(--blanc);
     }
 
-    /* Mobile */
+    /* Responsive */
 
     @media (max-width: 850px) {
       nav {
@@ -456,7 +500,7 @@
       }
 
       .hero-grid,
-      .focus-grid,
+      .public-grid,
       .about {
         grid-template-columns: 1fr;
       }
@@ -485,8 +529,8 @@
       }
 
       .button {
-        text-align: center;
         width: 100%;
+        text-align: center;
       }
 
       section {
@@ -502,75 +546,86 @@
 
 <body>
 
+  <!-- Navigation -->
   <header>
     <div class="container navbar">
+
       <a class="brand" href="#accueil" aria-label="Accueil NoCrohnLimits">
-        <img src="Logo NoCrohnLimits.png">
+        <img
+          src="Logo NoCrohnLimits.jpg"
+          
+        >
       </a>
 
       <nav>
-        <a href="#missions">Les accompagnements</a>
-        <a href="#mici">MICI et mouvement</a>
-        <a href="#apropos">À propos</a>
-        <a class="nav-button" href="#contact">Prendre contact</a>
+        <a href="#services">Services</a>
+        <a href="#public">Pour qui ?</a>
+        <a href="#parcours">Mon parcours</a>
+        <a href="#contact" class="nav-button">Me contacter</a>
       </nav>
+
     </div>
   </header>
 
   <main>
 
+    <!-- Accueil -->
     <section class="hero" id="accueil">
       <div class="container hero-grid">
 
         <div>
-          <p class="badge">Calme • Confiance • Mouvement</p>
+          <p class="badge">Calme • Confiance • Progression</p>
 
           <h1>
-            Retrouver son équilibre,
-            <span>sans se fixer de limites.</span>
+            Retrouvez votre calme,
+            <span>votre confiance et votre élan.</span>
           </h1>
 
           <p class="hero-text">
-            NoCrohnLimits propose des outils simples de méditation,
-            de préparation mentale et de mouvement pour vous aider à retrouver
-            du calme, de la confiance et un nouvel élan au quotidien.
+            J’accompagne les sportifs, les personnes stressées et toute personne
+            souhaitant avancer plus sereinement grâce à la méditation et à la
+            préparation mentale.
           </p>
 
           <div class="hero-buttons">
-            <a class="button button-primary" href="#contact">
+            <a class="button button-primary" href="#services">
               Découvrir les accompagnements
             </a>
 
-            <a class="button button-secondary" href="#missions">
-              Voir comment ça fonctionne
+            <a class="button button-secondary" href="#contact">
+              Prendre contact
             </a>
           </div>
         </div>
 
         <aside class="hero-card">
-          <img src="Logo NoCrohnLimits.png">
+          <img
+            src="Logo NoCrohnLimits.jpg"
+            
+          >
 
           <h2>Un pas après l’autre</h2>
 
           <p>
-            Respirer. Se recentrer. Reprendre confiance.
-            Avancer à son rythme.
+            Respirer, se recentrer, retrouver confiance et avancer
+            à son propre rythme.
           </p>
         </aside>
 
       </div>
     </section>
 
-    <section id="missions">
+    <!-- Services -->
+    <section id="services">
       <div class="container">
 
         <div class="section-title">
-          <h2>Des outils concrets pour avancer</h2>
+          <h2>Des outils pour avancer à votre rythme</h2>
 
           <p>
-            Que vous soyez sportif, débutant en méditation ou en recherche
-            d’un meilleur équilibre malgré une maladie chronique, l’objectif
-            reste le même : vous aider à reprendre la main sur votre quotidien.
+            Chaque accompagnement est adapté à votre objectif : mieux gérer
+            le stress, développer votre confiance, préparer un défi sportif
+            ou installer une pratique de méditation dans votre quotidien.
           </p>
         </div>
 
@@ -579,11 +634,11 @@
           <article class="card">
             <div class="icon">🧘</div>
 
-            <h3>Méditation guidée</h3>
+            <h3>Méditation et gestion du stress</h3>
 
             <p>
-              Des pratiques accessibles pour ralentir, mieux respirer,
-              calmer le mental et créer un moment de pause dans la journée.
+              Des pratiques accessibles pour calmer le mental, améliorer
+              la concentration et retrouver un espace de calme au quotidien.
             </p>
           </article>
 
@@ -593,7 +648,7 @@
             <h3>Préparation mentale</h3>
 
             <p>
-              Des outils pour mieux gérer la pression, renforcer la confiance,
+              Des outils pour développer la confiance, gérer la pression,
               clarifier vos objectifs et passer à l’action.
             </p>
           </article>
@@ -601,11 +656,11 @@
           <article class="card">
             <div class="icon">🏃</div>
 
-            <h3>Mouvement progressif</h3>
+            <h3>Accompagnement des sportifs</h3>
 
             <p>
-              Retrouver une relation plus sereine avec l’activité physique,
-              avancer à son rythme et célébrer chaque étape.
+              Un soutien mental pour mieux vous préparer, rester régulier
+              et gérer les périodes de doute avant ou pendant une compétition.
             </p>
           </article>
 
@@ -613,44 +668,59 @@
       </div>
     </section>
 
-    <section class="focus" id="mici">
-      <div class="container focus-grid">
+    <!-- Pour qui ? -->
+    <section class="public-section" id="public">
+      <div class="container public-grid">
 
         <div>
-          <h2>Vivre avec une MICI ne doit pas empêcher d’avancer.</h2>
+          <h2>Pour qui sont ces accompagnements ?</h2>
 
           <p>
-            NoCrohnLimits est né autour de l’idée que chacun peut retrouver
-            de l’élan, de la confiance et une place pour le mouvement,
-            même lorsque le corps impose des difficultés.
+            Ces séances s’adressent à toute personne qui souhaite travailler
+            sur son calme, sa confiance, sa concentration ou sa régularité.
           </p>
 
           <p>
-            Le site propose une approche de bien-être, de soutien et
-            d’encouragement. Il ne remplace jamais un avis médical,
-            psychologique ou paramédical.
+            Vous n’avez pas besoin d’être sportif de haut niveau ni d’avoir
+            déjà pratiqué la méditation.
           </p>
         </div>
 
-        <div class="list">
-          <div class="list-item">✓ Retrouver confiance dans son corps</div>
-          <div class="list-item">✓ Recommencer à bouger progressivement</div>
-          <div class="list-item">✓ Mieux gérer le stress et les pensées envahissantes</div>
-          <div class="list-item">✓ Se sentir moins seul face aux difficultés</div>
+        <div class="public-list">
+          <div class="public-item">
+            ✓ Débutants en méditation
+          </div>
+
+          <div class="public-item">
+            ✓ Personnes stressées ou mentalement surchargées
+          </div>
+
+          <div class="public-item">
+            ✓ Sportifs amateurs et compétiteurs
+          </div>
+
+          <div class="public-item">
+            ✓ Personnes qui souhaitent retrouver motivation et confiance
+          </div>
+
+          <div class="public-item">
+            ✓ Personnes préparant un objectif personnel ou sportif
+          </div>
         </div>
 
       </div>
     </section>
 
-    <section>
+    <!-- Méthode -->
+    <section id="methode">
       <div class="container">
 
         <div class="section-title">
-          <h2>Comment commencer ?</h2>
+          <h2>Une méthode simple et progressive</h2>
 
           <p>
-            Pas besoin d’être expert, sportif de haut niveau ou déjà habitué
-            à méditer. Le but est de faire un premier pas concret.
+            L’objectif n’est pas de rechercher la perfection, mais de construire
+            des outils réalistes que vous pouvez utiliser dans votre quotidien.
           </p>
         </div>
 
@@ -662,8 +732,8 @@
             <h3>Faire le point</h3>
 
             <p>
-              Un premier échange simple pour comprendre votre situation,
-              votre objectif et ce dont vous avez réellement besoin.
+              Un premier échange pour comprendre votre situation, votre objectif
+              et ce dont vous avez réellement besoin.
             </p>
           </article>
 
@@ -673,8 +743,8 @@
             <h3>Tester des outils simples</h3>
 
             <p>
-              Respiration, méditation guidée, visualisation,
-              routines mentales et exercices adaptés à votre rythme.
+              Respiration, méditation guidée, visualisation, routines mentales
+              et exercices adaptés à votre niveau.
             </p>
           </article>
 
@@ -684,8 +754,8 @@
             <h3>Créer de la régularité</h3>
 
             <p>
-              Mettre en place des actions réalistes pour vous aider à retrouver
-              calme, confiance et mouvement dans la durée.
+              Mettre en place des actions réalistes pour progresser avec
+              davantage de calme, de confiance et de constance.
             </p>
           </article>
 
@@ -693,49 +763,41 @@
       </div>
     </section>
 
-    <section class="cta" id="contact">
-      <div class="container">
-        <div class="cta-box">
-
-          <h2>Envie de faire un premier pas ?</h2>
-
-          <p>
-            Contactez-moi pour recevoir les informations sur les séances,
-            ateliers de méditation ou accompagnements de préparation mentale.
-          </p>
-
-          <a class="button" href="jeremy@nocrohnlimits.fr">
-            Me contacter
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="apropos">
+    <!-- Parcours personnel -->
+    <section id="parcours">
       <div class="container about">
 
         <div class="about-logo">
-          <img src="Logo NoCrohnLimits.png">
+          <img
+            src="Logo NoCrohnLimits.jpg"
+           
+          >
         </div>
 
         <div class="about-text">
-          <h2>À propos de NoCrohnLimits</h2>
+          <h2>Une approche nourrie par mon parcours</h2>
 
           <p>
-            NoCrohnLimits est un projet orienté vers le bien-être, la confiance
-            et le retour progressif au mouvement. Il rassemble des outils issus
-            de la méditation, de la préparation mentale et de l’expérience du sport.
+            Mon parcours avec la maladie de Crohn m’a conduit à découvrir
+            la méditation, la préparation mentale et l’importance d’une
+            progression adaptée à chaque personne.
           </p>
 
           <p>
-            L’objectif n’est pas de promettre une solution miracle, mais de proposer
-            un espace clair, humain et motivant pour retrouver de l’élan dans son quotidien.
+            Ces outils m’ont personnellement aidé à mieux gérer certaines
+            périodes difficiles, à retrouver confiance et à avancer étape
+            par étape.
+          </p>
+
+          <p>
+            Aujourd’hui, je propose ces outils aux sportifs, aux personnes
+            stressées et à toute personne souhaitant développer davantage
+            de calme, de confiance et de régularité dans son quotidien.
           </p>
 
           <div class="note">
-            Les contenus et accompagnements proposés sur ce site sont orientés
-            bien-être et développement personnel. Ils ne remplacent pas un suivi
+            Les accompagnements proposés sont orientés bien-être, développement
+            personnel et préparation mentale. Ils ne remplacent pas un suivi
             médical, psychologique ou thérapeutique.
           </div>
         </div>
@@ -743,12 +805,67 @@
       </div>
     </section>
 
+    <!-- Rubrique secondaire MICI -->
+    <section class="mici-section" id="mici">
+      <div class="container mici-content">
+
+        <h2>Une attention particulière aux parcours de santé</h2>
+
+        <p>
+          Mon expérience personnelle avec la maladie de Crohn m’a aussi sensibilisé
+          aux difficultés que peuvent rencontrer les personnes vivant avec une
+          maladie chronique.
+        </p>
+
+        <p>
+          Cette expérience peut être un point de compréhension supplémentaire,
+          mais mes accompagnements ne sont pas réservés aux personnes atteintes
+          d’une MICI et ne remplacent jamais un suivi médical.
+        </p>
+
+        <a class="mici-link" href="#contact">
+          Échanger sur votre situation
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="cta" id="contact">
+      <div class="container">
+
+        <div class="cta-box">
+          <h2>Envie de faire un premier pas ?</h2>
+
+          <p>
+            Contactez-moi pour recevoir les informations sur les séances,
+            les ateliers de méditation ou les accompagnements de préparation mentale.
+          </p>
+
+          
+          <a
+            class="button"
+            href="jeremy@nocrohnlimits.fr"
+          >
+            Me contacter
+          </a>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
+  <!-- Pied de page -->
   <footer>
     <div class="container footer-content">
-      <p><strong>NoCrohnLimits</strong> — Méditation, mental et mouvement</p>
-      <p>© 2026 NoCrohnLimits. Tous droits réservés.</p>
+      <p>
+        <strong>NoCrohnLimits</strong> — Méditation, préparation mentale et progression
+      </p>
+
+      <p>
+        © 2026 NoCrohnLimits. Tous droits réservés.
+      </p>
     </div>
   </footer>
 
