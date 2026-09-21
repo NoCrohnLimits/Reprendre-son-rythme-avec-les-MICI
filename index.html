@@ -13,15 +13,26 @@
 
   <style>
     :root {
-      --bleu: #315bd4;
-      --bleu-fonce: #10203d;
-      --bleu-clair: #eaf0ff;
-      --blanc: #ffffff;
-      --texte: #1b2434;
-      --texte-clair: #5d687b;
-      --fond: #f7f9ff;
-      --vert: #238d69;
-      --bordure: #e4eaf5;
+      --bleu: #315BD4;
+      --bleu-fonce: #10203D;
+      --bleu-clair: #EEF3FF;
+
+      --corail: #F28C78;
+      --corail-fonce: #C85F52;
+      --corail-clair: #FFE4DE;
+
+      --vert: #238D69;
+      --vert-clair: #DCEFE7;
+
+      --jaune: #F6D98B;
+      --creme: #FFF9F2;
+
+      --blanc: #FFFFFF;
+      --texte: #243047;
+      --texte-clair: #5D687B;
+      --fond: #F7F9FF;
+      --bordure: #E4EAF5;
+
       --ombre: 0 12px 30px rgba(15, 31, 61, 0.10);
       --rayon: 18px;
     }
@@ -126,7 +137,7 @@
     .button-primary {
       color: var(--blanc);
       background: var(--bleu);
-      box-shadow: 0 8px 18px rgba(47, 91, 211, 0.22);
+      box-shadow: 0 8px 18px rgba(49, 91, 212, 0.25);
     }
 
     .button-primary:hover {
@@ -145,13 +156,26 @@
       background: var(--bleu-clair);
     }
 
+    .button-coral {
+      color: var(--blanc);
+      background: var(--corail);
+      box-shadow: 0 8px 18px rgba(242, 140, 120, 0.28);
+    }
+
+    .button-coral:hover {
+      color: var(--blanc);
+      background: var(--corail-fonce);
+      transform: translateY(-2px);
+    }
+
     /* Hero */
 
     .hero {
       padding: 85px 0 70px;
       background:
-        radial-gradient(circle at 85% 10%, #dfe8ff 0, transparent 34%),
-        linear-gradient(135deg, #f8faff 0%, #edf3ff 100%);
+        radial-gradient(circle at 85% 10%, #FFE3DC 0, transparent 25%),
+        radial-gradient(circle at 10% 80%, #DCEFE7 0, transparent 28%),
+        linear-gradient(135deg, #F8FAFF 0%, #EDF3FF 100%);
     }
 
     .hero-grid {
@@ -165,8 +189,8 @@
       display: inline-block;
       margin-bottom: 18px;
       padding: 8px 14px;
-      color: var(--bleu);
-      background: var(--bleu-clair);
+      color: var(--corail-fonce);
+      background: var(--corail-clair);
       border-radius: 99px;
       font-size: 0.88rem;
       font-weight: 800;
@@ -261,6 +285,24 @@
       border: 1px solid var(--bordure);
       border-radius: var(--rayon);
       box-shadow: 0 8px 20px rgba(15, 31, 61, 0.05);
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--ombre);
+    }
+
+    .card:nth-child(1) {
+      border-top: 4px solid var(--bleu);
+    }
+
+    .card:nth-child(2) {
+      border-top: 4px solid var(--corail);
+    }
+
+    .card:nth-child(3) {
+      border-top: 4px solid var(--vert);
     }
 
     .icon {
@@ -269,10 +311,23 @@
       display: grid;
       place-items: center;
       margin-bottom: 18px;
-      background: var(--bleu-clair);
       border-radius: 14px;
-      color: var(--bleu);
       font-size: 1.65rem;
+    }
+
+    .card:nth-child(1) .icon {
+      color: var(--bleu);
+      background: var(--bleu-clair);
+    }
+
+    .card:nth-child(2) .icon {
+      color: var(--corail-fonce);
+      background: var(--corail-clair);
+    }
+
+    .card:nth-child(3) .icon {
+      color: var(--vert);
+      background: var(--vert-clair);
     }
 
     .card h3 {
@@ -288,7 +343,7 @@
     /* Public */
 
     .public-section {
-      background: #eef3ff;
+      background: var(--creme);
     }
 
     .public-grid {
@@ -318,11 +373,15 @@
     .public-item {
       padding: 16px 18px;
       background: var(--blanc);
-      border-left: 4px solid var(--bleu);
+      border-left: 4px solid var(--corail);
       border-radius: 0 12px 12px 0;
       color: var(--bleu-fonce);
       font-weight: 700;
       box-shadow: 0 6px 16px rgba(15, 31, 61, 0.05);
+    }
+
+    .public-item:nth-child(even) {
+      border-left-color: var(--vert);
     }
 
     /* Méthode */
@@ -341,11 +400,27 @@
       box-shadow: 0 7px 18px rgba(15, 31, 61, 0.05);
     }
 
+    .step:nth-child(2) {
+      border-left-color: var(--corail);
+    }
+
+    .step:nth-child(3) {
+      border-left-color: var(--vert);
+    }
+
     .step-number {
       display: block;
       margin-bottom: 8px;
       color: var(--bleu);
       font-weight: 900;
+    }
+
+    .step:nth-child(2) .step-number {
+      color: var(--corail-fonce);
+    }
+
+    .step:nth-child(3) .step-number {
+      color: var(--vert);
     }
 
     .step h3 {
@@ -357,7 +432,11 @@
       color: var(--texte-clair);
     }
 
-    /* Parcours personnel */
+    /* Parcours */
+
+    #parcours {
+      background: var(--vert-clair);
+    }
 
     .about {
       display: grid;
@@ -392,21 +471,37 @@
     .note {
       margin-top: 20px;
       padding: 16px;
-      background: #eefaf5;
+      background: var(--blanc);
       border-left: 4px solid var(--vert);
       border-radius: 0 12px 12px 0;
-      color: #245a47;
+      color: #245A47;
       font-size: 0.94rem;
     }
 
-    /* MICI en rubrique secondaire */
+    /* Section MICI secondaire */
 
     .mici-section {
+      position: relative;
+      overflow: hidden;
       background: var(--bleu-fonce);
       color: var(--blanc);
     }
 
+    .mici-section::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      right: -80px;
+      top: -80px;
+      background: var(--corail);
+      border-radius: 50%;
+      opacity: 0.25;
+    }
+
     .mici-content {
+      position: relative;
+      z-index: 1;
       max-width: 850px;
     }
 
@@ -418,21 +513,21 @@
 
     .mici-content p {
       margin-bottom: 14px;
-      color: #dbe4fa;
+      color: #DBE4FA;
     }
 
     .mici-link {
       display: inline-block;
       margin-top: 8px;
       padding: 12px 18px;
-      background: var(--blanc);
+      background: var(--corail);
       border-radius: 9px;
-      color: var(--bleu);
+      color: var(--blanc);
       font-weight: 800;
     }
 
     .mici-link:hover {
-      background: var(--bleu-clair);
+      background: var(--corail-fonce);
     }
 
     /* Contact */
@@ -443,7 +538,9 @@
 
     .cta-box {
       padding: 52px 8%;
-      background: linear-gradient(135deg, var(--bleu), #6b8cff);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.18), transparent 22%),
+        linear-gradient(135deg, var(--bleu), #6B8CFF);
       border-radius: 26px;
       color: var(--blanc);
       text-align: center;
@@ -458,26 +555,26 @@
     .cta-box p {
       max-width: 700px;
       margin: 0 auto 26px;
-      color: #edf1ff;
+      color: #EDF1FF;
       font-size: 1.06rem;
     }
 
     .cta-box .button {
-      color: var(--bleu);
-      background: var(--blanc);
+      color: var(--blanc);
+      background: var(--corail);
     }
 
     .cta-box .button:hover {
       color: var(--blanc);
-      background: var(--bleu-fonce);
+      background: var(--corail-fonce);
     }
 
     /* Footer */
 
     footer {
       padding: 30px 0;
-      background: #09162d;
-      color: #bac7df;
+      background: #09162D;
+      color: #BAC7DF;
       font-size: 0.92rem;
     }
 
@@ -553,13 +650,13 @@
       <a class="brand" href="#accueil" aria-label="Accueil NoCrohnLimits">
         <img
           src="Logo NoCrohnLimits.png"
-          
         >
       </a>
 
       <nav>
         <a href="#services">Services</a>
         <a href="#public">Pour qui ?</a>
+        <a href="#methode">Méthode</a>
         <a href="#parcours">Mon parcours</a>
         <a href="#contact" class="nav-button">Me contacter</a>
       </nav>
@@ -601,7 +698,6 @@
         <aside class="hero-card">
           <img
             src="Logo NoCrohnLimits.png"
-            
           >
 
           <h2>Un pas après l’autre</h2>
@@ -668,7 +764,7 @@
       </div>
     </section>
 
-    <!-- Pour qui ? -->
+    <!-- Public -->
     <section class="public-section" id="public">
       <div class="container public-grid">
 
@@ -700,7 +796,7 @@
           </div>
 
           <div class="public-item">
-            ✓ Personnes qui souhaitent retrouver motivation et confiance
+            ✓ Personnes souhaitant retrouver motivation et confiance
           </div>
 
           <div class="public-item">
@@ -770,7 +866,6 @@
         <div class="about-logo">
           <img
             src="IMG_6690.png"
-           
           >
         </div>
 
@@ -805,7 +900,7 @@
       </div>
     </section>
 
-    <!-- Rubrique secondaire MICI -->
+    <!-- Rubrique MICI secondaire -->
     <section class="mici-section" id="mici">
       <div class="container mici-content">
 
@@ -843,9 +938,8 @@
           </p>
 
           
-          <a
-            class="button"
-            href="jeremy@nocrohnlimits.fr"
+          <a class="button button-coral"
+            href="mailto:tonadresse@email.fr?subject=Demande%20d%27information%20NoCrohnLimits"
           >
             Me contacter
           </a>
