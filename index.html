@@ -11,7 +11,6 @@
     content="Méditation, préparation mentale et accompagnement des sportifs. Des séances individuelles et collectives pour développer calme, confiance, concentration et régularité."
   >
 
-  <!-- Police Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -24,7 +23,8 @@
     :root {
       --bleu: #5274C9;
       --bleu-fonce: #263653;
-      --bleu-clair: #F0F4FC;
+      --bleu-clair: #EEF4FC;
+      --bleu-section: #E4EEF9;
 
       --corail: #E9A092;
       --corail-fonce: #B9786E;
@@ -34,13 +34,10 @@
       --vert-fonce: #376B59;
       --vert-clair: #E7F2ED;
 
-      --creme: #FFFBF7;
       --blanc: #FFFFFF;
-
       --texte: #354052;
       --texte-clair: #687386;
-      --fond: #FAFBFD;
-      --bordure: #E9EDF4;
+      --bordure: #DCE6F2;
 
       --ombre: 0 8px 24px rgba(38, 54, 83, 0.07);
       --rayon: 16px;
@@ -61,7 +58,7 @@
     body {
       font-family: "Poppins", Arial, Helvetica, sans-serif;
       color: var(--texte);
-      background: var(--fond);
+      background: var(--bleu-clair);
       line-height: 1.7;
       font-weight: 400;
     }
@@ -77,9 +74,12 @@
       display: block;
     }
 
+    img,
     .rounded-image,
     .hero-card img,
     .about-logo img,
+    .personal-photo img,
+    .photo-card img,
     .content-image {
       border-radius: var(--rayon-image);
     }
@@ -118,6 +118,15 @@
 
     h3 {
       font-weight: 600;
+    }
+
+    .small-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--corail-fonce);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.7px;
     }
 
     /* =========================
@@ -194,7 +203,7 @@
       background: var(--bleu-fonce);
     }
 
-    /* Menu hamburger */
+    /* Menu mobile */
 
     .mobile-menu-button {
       display: none;
@@ -274,7 +283,7 @@
 
     .button-secondary:hover {
       color: var(--bleu-fonce);
-      background: var(--bleu-clair);
+      background: var(--blanc);
     }
 
     .button-coral {
@@ -298,7 +307,7 @@
       background:
         radial-gradient(circle at 85% 10%, #FFF0EC 0, transparent 24%),
         radial-gradient(circle at 10% 80%, #E7F2ED 0, transparent 27%),
-        linear-gradient(135deg, #FBFCFF 0%, #F3F6FC 100%);
+        var(--bleu-clair);
     }
 
     .hero-grid {
@@ -335,7 +344,7 @@
 
     .hero-card {
       padding: 27px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       border: 1px solid var(--bordure);
       border-radius: 22px;
       box-shadow: var(--ombre);
@@ -409,7 +418,8 @@
     }
 
     .card:hover,
-    .offer-card:hover {
+    .offer-card:hover,
+    .photo-card:hover {
       transform: translateY(-3px);
       box-shadow: var(--ombre);
     }
@@ -468,7 +478,7 @@
     ========================= */
 
     .offers-section {
-      background: var(--blanc);
+      background: rgba(255, 255, 255, 0.38);
     }
 
     .offers-grid {
@@ -479,7 +489,7 @@
 
     .offer-card {
       padding: 23px;
-      background: var(--fond);
+      background: var(--blanc);
       border: 1px solid var(--bordure);
       border-radius: 16px;
       box-shadow: 0 6px 18px rgba(38, 54, 83, 0.045);
@@ -547,11 +557,56 @@
     }
 
     /* =========================
+       SECTION PHOTOS
+    ========================= */
+
+    .photos-section {
+      background: var(--bleu-section);
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .photo-card {
+      overflow: hidden;
+      background: var(--blanc);
+      border: 1px solid var(--bordure);
+      border-radius: var(--rayon);
+      box-shadow: 0 6px 18px rgba(38, 54, 83, 0.045);
+      transition: 0.2s ease;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 0;
+    }
+
+    .photo-card-content {
+      padding: 18px;
+    }
+
+    .photo-card h3 {
+      margin-bottom: 6px;
+      color: var(--bleu-fonce);
+      font-size: 1rem;
+    }
+
+    .photo-card p {
+      color: var(--texte-clair);
+      font-size: 0.88rem;
+    }
+
+    /* =========================
        PUBLIC
     ========================= */
 
     .public-section {
-      background: var(--creme);
+      background: rgba(255, 255, 255, 0.42);
     }
 
     .public-grid {
@@ -650,11 +705,109 @@
     }
 
     /* =========================
-       PARCOURS
+       SECTION PERSONNELLE
+    ========================= */
+
+    .personal-section {
+      background: var(--vert-clair);
+    }
+
+    .personal-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .personal-photo {
+      padding: 18px;
+      background: var(--blanc);
+      border-radius: 21px;
+      box-shadow: var(--ombre);
+    }
+
+    .personal-photo img {
+      width: 100%;
+      min-height: 300px;
+      object-fit: cover;
+    }
+
+    .personal-text h2 {
+      margin-bottom: 16px;
+      color: var(--bleu-fonce);
+      font-size: clamp(1.5rem, 2.2vw, 2.05rem);
+      line-height: 1.25;
+      font-weight: 600;
+    }
+
+    .personal-text p {
+      margin-bottom: 14px;
+      color: var(--texte-clair);
+      font-size: 0.96rem;
+    }
+
+    /* =========================
+       SÉANCE
+    ========================= */
+
+    .real-session-section {
+      background: rgba(255, 255, 255, 0.40);
+    }
+
+    .session-timeline {
+      max-width: 850px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .session-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 20px;
+      background: var(--blanc);
+      border: 1px solid var(--bordure);
+      border-radius: 14px;
+      box-shadow: 0 5px 15px rgba(38, 54, 83, 0.04);
+    }
+
+    .session-step > span {
+      min-width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--blanc);
+      background: var(--bleu);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .session-step:nth-child(2) > span {
+      background: var(--corail);
+    }
+
+    .session-step:nth-child(3) > span {
+      background: var(--vert);
+    }
+
+    .session-step h3 {
+      margin-bottom: 5px;
+      color: var(--bleu-fonce);
+      font-size: 1rem;
+    }
+
+    .session-step p {
+      color: var(--texte-clair);
+      font-size: 0.92rem;
+    }
+
+    /* =========================
+       PARCOURS SPORTIF
     ========================= */
 
     #parcours {
-      background: var(--vert-clair);
+      background: var(--bleu-section);
     }
 
     .about {
@@ -763,6 +916,7 @@
 
     .cta {
       padding: 65px 0;
+      background: var(--bleu-clair);
     }
 
     .cta-box {
@@ -925,7 +1079,8 @@
 
       .hero-grid,
       .public-grid,
-      .about {
+      .about,
+      .personal-grid {
         grid-template-columns: 1fr;
       }
 
@@ -938,8 +1093,13 @@
       }
 
       .cards,
-      .steps {
+      .steps,
+      .photo-grid {
         grid-template-columns: 1fr;
+      }
+
+      .personal-photo {
+        max-width: 500px;
       }
     }
 
@@ -952,6 +1112,7 @@
       .section-title h2,
       .public-grid h2,
       .about-text h2,
+      .personal-text h2,
       .mici-content h2 {
         font-size: 1.5rem;
         line-height: 1.25;
@@ -977,6 +1138,14 @@
       .card,
       .offer-card {
         padding: 22px;
+      }
+
+      .photo-card img {
+        height: 210px;
+      }
+
+      .session-step {
+        padding: 17px;
       }
     }
 
@@ -1033,8 +1202,8 @@
       <nav class="desktop-nav" aria-label="Navigation principale">
         <a href="#services">Services</a>
         <a href="#offres">Offres</a>
+        <a href="#photos">Photos</a>
         <a href="#public">Pour qui ?</a>
-        <a href="#methode">Méthode</a>
         <a href="#parcours">Mon parcours</a>
         <a href="#contact" class="nav-button">Contact</a>
       </nav>
@@ -1058,6 +1227,7 @@
       >
         <a href="#services">Services</a>
         <a href="#offres">Offres</a>
+        <a href="#photos">Photos</a>
         <a href="#public">Pour qui ?</a>
         <a href="#methode">Méthode</a>
         <a href="#parcours">Mon parcours</a>
@@ -1103,7 +1273,6 @@
 
         <aside class="hero-card">
           <img
-            class="rounded-image"
             src="IMG_3585.JPEG"
           >
 
@@ -1270,6 +1439,80 @@
     </section>
 
     <!-- =========================
+         PHOTOS À PERSONNALISER
+    ========================= -->
+
+    <section class="photos-section" id="photos">
+      <div class="container">
+
+        <div class="section-title">
+          <p class="small-label">MON UNIVERS</p>
+
+          <h2>Quelques images de mon approche</h2>
+
+          <p>
+            Remplace les images ci-dessous par tes propres photos :
+            entraînement, méditation, atelier, environnement de travail
+            ou moments importants de ton parcours.
+          </p>
+        </div>
+
+        <div class="photo-grid">
+
+          <article class="photo-card">
+            <img
+              src="photo jeremy Nice.jpg"
+            >
+
+            <div class="photo-card-content">
+              <h3>Le sport au quotidien</h3>
+
+              <p>
+                Une pratique personnelle qui nourrit ma compréhension
+                des sportifs amateurs.
+              </p>
+            </div>
+          </article>
+
+          <article class="photo-card">
+            <!-- Remplace photo-meditation.jpg par ton propre fichier -->
+            <img
+              src="photo-meditation.jpg"
+              alt="Photo d'un espace ou d'une séance de méditation"
+            >
+
+            <div class="photo-card-content">
+              <h3>La méditation</h3>
+
+              <p>
+                Des pratiques simples pour apprendre à ralentir
+                et se recentrer.
+              </p>
+            </div>
+          </article>
+
+          <article class="photo-card">
+            <!-- Remplace photo-atelier.jpg par ton propre fichier -->
+            <img
+              src="photo-atelier.jpg"
+              alt="Photo d'un atelier ou d'une séance en groupe"
+            >
+
+            <div class="photo-card-content">
+              <h3>Les séances de groupe</h3>
+
+              <p>
+                Un cadre accessible pour pratiquer, échanger
+                et progresser ensemble.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
          PUBLIC
     ========================= -->
 
@@ -1371,21 +1614,84 @@
     </section>
 
     <!-- =========================
-         PARCOURS
+         À QUOI RESSEMBLE UNE SÉANCE ?
     ========================= -->
 
-    <section id="parcours">
-      <div class="container about">
+    <section class="real-session-section" id="seance">
+      <div class="container">
 
-        <div class="about-logo">
+        <div class="section-title">
+          <p class="small-label">CONCRÈTEMENT</p>
+
+          <h2>À quoi ressemble une séance ?</h2>
+
+          <p>
+            Vous n’avez pas besoin de savoir méditer ni de savoir exactement
+            quoi faire. Je vous guide étape par étape.
+          </p>
+        </div>
+
+        <div class="session-timeline">
+
+          <div class="session-step">
+            <span>01</span>
+
+            <div>
+              <h3>Nous échangeons</h3>
+
+              <p>
+                Vous expliquez ce qui vous amène et ce que vous aimeriez améliorer.
+              </p>
+            </div>
+          </div>
+
+          <div class="session-step">
+            <span>02</span>
+
+            <div>
+              <h3>Nous pratiquons</h3>
+
+              <p>
+                Je vous guide dans un exercice de respiration, de méditation
+                ou de préparation mentale.
+              </p>
+            </div>
+          </div>
+
+          <div class="session-step">
+            <span>03</span>
+
+            <div>
+              <h3>Vous repartez avec un outil</h3>
+
+              <p>
+                Vous repartez avec une pratique simple que vous pouvez tester
+                chez vous ou dans votre entraînement.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         PRÉSENTATION PERSONNELLE
+    ========================= -->
+
+    <section class="personal-section" id="moi">
+      <div class="container personal-grid">
+
+        <div class="personal-photo">
           <img
-            class="rounded-image"
             src="IMG_6690.png"
           >
         </div>
 
-        <div class="about-text">
-          <h2>Une approche nourrie par mon parcours</h2>
+        <div class="personal-text">
+          <p class="small-label">QUI SUIS-JE ?</p>
+
+          <h2>Une approche nourrie par une expérience réelle</h2>
 
           <p>
             Je pratique les sports d’endurance, notamment la natation,
@@ -1395,10 +1701,48 @@
           </p>
 
           <p>
-            Mon parcours avec la maladie de Crohn m’a également conduit
-            à découvrir la méditation et la préparation mentale. Ces outils
-            m’ont personnellement aidé à mieux gérer certaines périodes
-            difficiles, à retrouver confiance et à avancer étape par étape.
+            Mon parcours avec la maladie de Crohn m’a également amené
+            à chercher des outils pour mieux avancer avec mon corps et mon mental.
+            La méditation et la préparation mentale ont pris une place importante
+            dans ce chemin.
+          </p>
+
+          <p>
+            Je ne propose pas une méthode magique. Je souhaite partager
+            des outils concrets, accessibles et adaptés à la réalité
+            de chaque personne.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         PARCOURS
+    ========================= -->
+
+    <section id="parcours">
+      <div class="container about">
+
+        <div class="about-logo">
+          <img
+            src="Votre-texte-de-paragraphe-1.jpg"
+            alt="Logo NoCrohnLimits"
+          >
+        </div>
+
+        <div class="about-text">
+          <h2>Mon parcours avec la méditation et la préparation mentale</h2>
+
+          <p>
+            Mon expérience personnelle m’a conduit à découvrir la méditation,
+            la préparation mentale et l’importance d’une progression adaptée
+            à chaque personne.
+          </p>
+
+          <p>
+            Ces outils m’ont aidé à mieux gérer certaines périodes difficiles,
+            à retrouver confiance et à avancer étape par étape.
           </p>
 
           <p>
