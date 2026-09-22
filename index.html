@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Jérémy propose des séances de méditation et de préparation mentale autour de Roeschwoog et en visioconférence, pour les sportifs et toute personne souhaitant prendre soin de son mental."
+    content="Jérémy propose des séances de méditation de groupe et de préparation mentale autour de Roeschwoog et en visioconférence."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,7 +77,6 @@
     img,
     .rounded-image,
     .hero-card img,
-    .about-logo img,
     .personal-photo img,
     .sport-photo img,
     .photo-card img {
@@ -427,7 +426,8 @@
 
     .card:hover,
     .offer-card:hover,
-    .photo-card:hover {
+    .photo-card:hover,
+    .booking-card:hover {
       transform: translateY(-3px);
       box-shadow: var(--ombre);
     }
@@ -488,12 +488,14 @@
 
     .offers-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 19px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
     .offer-card {
-      padding: 23px;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
       background: var(--blanc);
       border: 1px solid var(--bordure);
       border-radius: 16px;
@@ -502,19 +504,15 @@
     }
 
     .offer-card:nth-child(1) {
-      border-top: 3px solid var(--bleu);
+      border-top: 3px solid var(--corail);
     }
 
     .offer-card:nth-child(2) {
-      border-top: 3px solid var(--corail);
+      border-top: 3px solid var(--bleu);
     }
 
     .offer-card:nth-child(3) {
       border-top: 3px solid var(--vert);
-    }
-
-    .offer-card:nth-child(4) {
-      border-top: 3px solid var(--bleu-fonce);
     }
 
     .offer-icon {
@@ -524,12 +522,12 @@
       place-items: center;
       margin-bottom: 15px;
       border-radius: 13px;
-      background: var(--bleu-clair);
+      background: var(--corail-clair);
       font-size: 1.45rem;
     }
 
     .offer-card:nth-child(2) .offer-icon {
-      background: var(--corail-clair);
+      background: var(--bleu-clair);
     }
 
     .offer-card:nth-child(3) .offer-icon {
@@ -537,21 +535,23 @@
     }
 
     .offer-card h3 {
-      min-height: 54px;
+      min-height: 52px;
       margin-bottom: 10px;
       color: var(--bleu-fonce);
-      font-size: 1rem;
+      font-size: 1.05rem;
       line-height: 1.35;
     }
 
     .offer-card p {
       min-height: 145px;
+      margin-bottom: 12px;
       color: var(--texte-clair);
-      font-size: 0.9rem;
+      font-size: 0.91rem;
       line-height: 1.65;
     }
 
     .offer-card ul {
+      flex-grow: 1;
       padding-left: 18px;
       color: var(--texte-clair);
       font-size: 0.86rem;
@@ -559,6 +559,75 @@
 
     .offer-card li {
       margin-bottom: 7px;
+    }
+
+    .offer-button {
+      width: 100%;
+      margin-top: 24px;
+      text-align: center;
+      font-size: 0.84rem;
+    }
+
+    /* =========================
+       RÉSERVATION
+    ========================= */
+
+    .booking-section {
+      background: var(--bleu-section);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .booking-card {
+      padding: 28px;
+      background: var(--blanc);
+      border: 1px solid var(--bordure);
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(38, 54, 83, 0.045);
+      transition: 0.2s ease;
+    }
+
+    .booking-card:nth-child(1) {
+      border-top: 3px solid var(--bleu);
+    }
+
+    .booking-card:nth-child(2) {
+      border-top: 3px solid var(--corail);
+    }
+
+    .booking-number {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      background: var(--bleu-clair);
+      color: var(--bleu);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .booking-card:nth-child(2) .booking-number {
+      background: var(--corail-clair);
+      color: var(--corail-fonce);
+    }
+
+    .booking-card h3 {
+      margin-bottom: 10px;
+      color: var(--bleu-fonce);
+      font-size: 1.1rem;
+    }
+
+    .booking-card p {
+      min-height: 105px;
+      margin-bottom: 20px;
+      color: var(--texte-clair);
+      font-size: 0.92rem;
     }
 
     /* =========================
@@ -710,47 +779,6 @@
     }
 
     /* =========================
-       PARCOURS SPORTIF
-    ========================= */
-
-    .sport-section {
-      background: var(--vert-clair);
-    }
-
-    .sport-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      gap: 48px;
-    }
-
-    .sport-text h2 {
-      margin-bottom: 16px;
-      color: var(--bleu-fonce);
-      font-size: clamp(1.5rem, 2.2vw, 2.05rem);
-      line-height: 1.25;
-    }
-
-    .sport-text p {
-      margin-bottom: 14px;
-      color: var(--texte-clair);
-      font-size: 0.96rem;
-    }
-
-    .sport-photo {
-      padding: 18px;
-      background: var(--blanc);
-      border-radius: 21px;
-      box-shadow: var(--ombre);
-    }
-
-    .sport-photo img {
-      width: 100%;
-      min-height: 300px;
-      object-fit: cover;
-    }
-
-    /* =========================
        SÉANCE
     ========================= */
 
@@ -804,47 +832,6 @@
     .session-step p {
       color: var(--texte-clair);
       font-size: 0.92rem;
-    }
-
-    /* =========================
-       HISTOIRE PERSONNELLE
-    ========================= */
-
-    .personal-section {
-      background: var(--bleu-section);
-    }
-
-    .personal-grid {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      align-items: center;
-      gap: 48px;
-    }
-
-    .personal-photo {
-      padding: 18px;
-      background: var(--blanc);
-      border-radius: 21px;
-      box-shadow: var(--ombre);
-    }
-
-    .personal-photo img {
-      width: 100%;
-      min-height: 300px;
-      object-fit: cover;
-    }
-
-    .personal-text h2 {
-      margin-bottom: 16px;
-      color: var(--bleu-fonce);
-      font-size: clamp(1.5rem, 2.2vw, 2.05rem);
-      line-height: 1.25;
-    }
-
-    .personal-text p {
-      margin-bottom: 14px;
-      color: var(--texte-clair);
-      font-size: 0.96rem;
     }
 
     /* =========================
@@ -908,6 +895,88 @@
       color: var(--texte-clair);
       font-size: 0.86rem;
       line-height: 1.6;
+    }
+
+    /* =========================
+       HISTOIRE PERSONNELLE
+    ========================= */
+
+    .personal-section {
+      background: var(--vert-clair);
+    }
+
+    .personal-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .personal-photo {
+      padding: 18px;
+      background: var(--blanc);
+      border-radius: 21px;
+      box-shadow: var(--ombre);
+    }
+
+    .personal-photo img {
+      width: 100%;
+      min-height: 300px;
+      object-fit: cover;
+    }
+
+    .personal-text h2 {
+      margin-bottom: 16px;
+      color: var(--bleu-fonce);
+      font-size: clamp(1.5rem, 2.2vw, 2.05rem);
+      line-height: 1.25;
+    }
+
+    .personal-text p {
+      margin-bottom: 14px;
+      color: var(--texte-clair);
+      font-size: 0.96rem;
+    }
+
+    /* =========================
+       PARCOURS SPORTIF
+    ========================= */
+
+    .sport-section {
+      background: var(--bleu-section);
+    }
+
+    .sport-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .sport-text h2 {
+      margin-bottom: 16px;
+      color: var(--bleu-fonce);
+      font-size: clamp(1.5rem, 2.2vw, 2.05rem);
+      line-height: 1.25;
+    }
+
+    .sport-text p {
+      margin-bottom: 14px;
+      color: var(--texte-clair);
+      font-size: 0.96rem;
+    }
+
+    .sport-photo {
+      padding: 18px;
+      background: var(--blanc);
+      border-radius: 21px;
+      box-shadow: var(--ombre);
+    }
+
+    .sport-photo img {
+      width: 100%;
+      min-height: 300px;
+      object-fit: cover;
     }
 
     /* =========================
@@ -1037,7 +1106,7 @@
     }
 
     /* =========================
-       RESPONSIVE TABLETTE
+       TABLETTE
     ========================= */
 
     @media (max-width: 1100px) {
@@ -1049,21 +1118,13 @@
         font-size: 0.75rem;
       }
 
-      .offers-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       .fuel-grid {
         grid-template-columns: repeat(3, 1fr);
-      }
-
-      .offer-card p {
-        min-height: auto;
       }
     }
 
     /* =========================
-       RESPONSIVE MOBILE
+       MOBILE
     ========================= */
 
     @media (max-width: 850px) {
@@ -1160,6 +1221,11 @@
         grid-template-columns: 1fr;
       }
 
+      .offers-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+
       .fuel-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1189,7 +1255,6 @@
         font-size: 0.95rem;
       }
 
-      .offers-grid,
       .fuel-grid {
         grid-template-columns: 1fr;
       }
@@ -1198,8 +1263,14 @@
         min-height: auto;
       }
 
+      .offer-card p,
+      .booking-card p {
+        min-height: auto;
+      }
+
       .card,
-      .offer-card {
+      .offer-card,
+      .booking-card {
         padding: 22px;
       }
 
@@ -1209,6 +1280,11 @@
 
       .session-step {
         padding: 17px;
+      }
+
+      .booking-card .button {
+        width: 100%;
+        text-align: center;
       }
     }
 
@@ -1265,6 +1341,7 @@
       <nav class="desktop-nav" aria-label="Navigation principale">
         <a href="#services">Services</a>
         <a href="#offres">Offres</a>
+        <a href="#reservation">Réserver</a>
         <a href="#photos">Photos</a>
         <a href="#parcours">Parcours</a>
         <a href="#contact" class="nav-button">Contact</a>
@@ -1289,6 +1366,7 @@
       >
         <a href="#services">Services</a>
         <a href="#offres">Offres</a>
+        <a href="#reservation">Réserver</a>
         <a href="#photos">Photos</a>
         <a href="#public">Pour qui ?</a>
         <a href="#methode">Méthode</a>
@@ -1330,8 +1408,8 @@
               Découvrir mes accompagnements
             </a>
 
-            <a class="button button-secondary" href="#contact">
-              Échanger avec moi
+            <a class="button button-secondary" href="#reservation">
+              Réserver une séance
             </a>
           </div>
         </div>
@@ -1341,12 +1419,13 @@
             src="IMG_3585.JPEG"
           >
 
-          <h2>Mon approche</h2>
+          <h2>Une autre façon d’avancer</h2>
 
-<p>
-  « Tu ne peux pas toujours changer ce qui t’arrive,
-  mais tu peux changer la façon dont tu le vis. »
-</p>
+          <p>
+            La méditation et la préparation mentale m’ont aidé à mieux vivre
+            certaines périodes de ma vie. Aujourd’hui, je souhaite transmettre
+            ces outils à mon tour.
+          </p>
         </aside>
 
       </div>
@@ -1374,11 +1453,11 @@
           <article class="card">
             <div class="icon">🧘</div>
 
-            <h3>Méditation et gestion du mental</h3>
+            <h3>Méditation de groupe</h3>
 
             <p>
-              Des pratiques simples pour déposer une partie de la charge mentale,
-              retrouver davantage d’apaisement et développer une meilleure clarté.
+              Un rendez-vous collectif pour déposer une partie de la charge mentale,
+              se recentrer et apprendre progressivement à pratiquer seul.
             </p>
           </article>
 
@@ -1420,7 +1499,7 @@
           <h2>Ce que je propose</h2>
 
           <p>
-            Des séances individuelles et collectives, en présentiel autour
+            Des séances de groupe ou individuelles, en présentiel autour
             de Roeschwoog ou en visioconférence.
           </p>
         </div>
@@ -1428,44 +1507,32 @@
         <div class="offers-grid">
 
           <article class="offer-card">
-            <div class="offer-icon">🧘</div>
-
-            <h3>Méditation individuelle</h3>
-
-            <p>
-              Pour moi, méditer ne signifie pas arrêter de penser. C’est impossible.
-              Il s’agit plutôt de laisser les pensées passer sans s’y accrocher,
-              puis de ramener doucement son attention vers la respiration.
-            </p>
-
-            <ul>
-              <li>Séance adaptée à votre niveau</li>
-              <li>Pratique neutre et accessible</li>
-              <li>Respiration et méditation guidée</li>
-              <li>Durée possible de 10 à 30 minutes</li>
-              <li>Outils à réutiliser seul ensuite</li>
-            </ul>
-          </article>
-
-          <article class="offer-card">
             <div class="offer-icon">👥</div>
 
-            <h3>Méditation de groupe</h3>
+            <h3>Méditation du dimanche soir</h3>
 
             <p>
-              Certaines personnes ont du mal à pratiquer seules. Le groupe
-              crée un rendez-vous, un cadre et une énergie particulière pendant
-              la méditation.
+              Un rendez-vous hebdomadaire en visioconférence pour relâcher
+              la charge mentale, se recentrer et terminer la journée plus calmement.
             </p>
 
             <ul>
-              <li>Présentiel autour de Roeschwoog ou visioconférence</li>
-              <li>Séance d’environ 30 minutes</li>
+              <li>Chaque dimanche à 20 h</li>
+              <li>En visioconférence</li>
+              <li>Durée d’environ 45 minutes</li>
               <li>Groupe limité à 10 personnes</li>
               <li>Temps d’échange après la pratique</li>
-              <li>Rendez-vous les dimanche à 20 h</li>
-              <li>Tarif doux pour rester accessible</li>
+              <li>Tarif doux et accessible</li>
             </ul>
+
+            <a
+              class="button button-coral offer-button"
+              href="https://forms.gle/eTBzZ5BVrpKxVKFs8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Réserver la méditation
+            </a>
           </article>
 
           <article class="offer-card">
@@ -1474,9 +1541,9 @@
             <h3>Préparation mentale</h3>
 
             <p>
-              La préparation mentale ne concerne pas uniquement la performance.
-              Elle peut aider à comprendre certains blocages, sortir d’un cycle
-              de sabotage et avancer vers un objectif qui compte réellement.
+              Un accompagnement pour mieux comprendre certains blocages,
+              clarifier une intention et avancer vers un objectif qui a
+              réellement du sens.
             </p>
 
             <ul>
@@ -1484,8 +1551,17 @@
               <li>Identifier vos freins</li>
               <li>Explorer vos priorités personnelles</li>
               <li>Construire des étapes réalistes</li>
-              <li>Avancer avec davantage d’équilibre</li>
+              <li>Prévoir au minimum trois séances pour poser les bases</li>
             </ul>
+
+            <a
+              class="button button-primary offer-button"
+              href="https://calendly.com/j-fuelperformance/1h"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Réserver une séance
+            </a>
           </article>
 
           <article class="offer-card">
@@ -1506,6 +1582,80 @@
               <li>Concentration et régularité</li>
               <li>Reprise du sport sans culpabiliser</li>
             </ul>
+
+            <a
+              class="button button-primary offer-button"
+              href="https://calendly.com/j-fuelperformance/1h"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Réserver une séance sportive
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         RÉSERVATION
+    ========================= -->
+
+    <section class="booking-section" id="reservation">
+      <div class="container">
+
+        <div class="section-title">
+          <p class="small-label">RÉSERVER</p>
+
+          <h2>Choisissez votre accompagnement</h2>
+
+          <p>
+            La réservation se fait directement en ligne selon le type de séance
+            que vous souhaitez rejoindre.
+          </p>
+        </div>
+
+        <div class="booking-grid">
+
+          <article class="booking-card">
+            <div class="booking-number">01</div>
+
+            <h3>Préparation mentale</h3>
+
+            <p>
+              Pour réserver une séance individuelle de préparation mentale,
+              choisissez directement un créneau disponible dans mon agenda Calendly.
+            </p>
+
+            <a
+              class="button button-primary"
+              href="https://calendly.com/j-fuelperformance/1h"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Voir les créneaux Calendly
+            </a>
+          </article>
+
+          <article class="booking-card">
+            <div class="booking-number">02</div>
+
+            <h3>Méditation du dimanche soir</h3>
+
+            <p>
+              Pour participer à la séance de méditation en visioconférence,
+              remplissez le formulaire Google Forms. Vous recevrez ensuite
+              les informations pratiques.
+            </p>
+
+            <a
+              class="button button-coral"
+              href="https://forms.gle/r4mMXEe3zjSNYRo47"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Remplir le formulaire
+            </a>
           </article>
 
         </div>
@@ -1989,109 +2139,4 @@
   ========================= -->
 
   <footer>
-    <div class="container footer-content">
-      <p>
-        <strong>NoCrohnLimits</strong> —
-        Méditation, préparation mentale et équilibre
-      </p>
-
-      <p>
-        © 2026 NoCrohnLimits. Tous droits réservés.
-      </p>
-    </div>
-  </footer>
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
-
-  <script>
-    const header = document.getElementById("site-header");
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileNav = document.getElementById("mobile-nav");
-
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
-    function updateHeader() {
-      const currentScrollY = window.scrollY;
-      const difference = currentScrollY - lastScrollY;
-
-      if (currentScrollY > 10) {
-        header.classList.add("header-scrolled");
-      } else {
-        header.classList.remove("header-scrolled");
-      }
-
-      if (window.innerWidth <= 850) {
-        if (currentScrollY > 90 && difference > 4) {
-          header.classList.add("header-hidden");
-
-          mobileNav.classList.remove("open");
-          mobileMenuButton.classList.remove("active");
-          mobileMenuButton.setAttribute("aria-expanded", "false");
-          mobileMenuButton.setAttribute(
-            "aria-label",
-            "Ouvrir le menu"
-          );
-        }
-
-        if (difference < -4 || currentScrollY <= 90) {
-          header.classList.remove("header-hidden");
-        }
-      } else {
-        header.classList.remove("header-hidden");
-      }
-
-      lastScrollY = currentScrollY;
-      ticking = false;
-    }
-
-    window.addEventListener("scroll", () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateHeader);
-        ticking = true;
-      }
-    }, { passive: true });
-
-    mobileMenuButton.addEventListener("click", () => {
-      const menuIsOpen = mobileNav.classList.toggle("open");
-
-      mobileMenuButton.classList.toggle("active", menuIsOpen);
-      mobileMenuButton.setAttribute("aria-expanded", menuIsOpen);
-      mobileMenuButton.setAttribute(
-        "aria-label",
-        menuIsOpen ? "Fermer le menu" : "Ouvrir le menu"
-      );
-
-      header.classList.remove("header-hidden");
-    });
-
-    document.querySelectorAll(".mobile-nav a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileNav.classList.remove("open");
-        mobileMenuButton.classList.remove("active");
-        mobileMenuButton.setAttribute("aria-expanded", "false");
-        mobileMenuButton.setAttribute(
-          "aria-label",
-          "Ouvrir le menu"
-        );
-      });
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 850) {
-        mobileNav.classList.remove("open");
-        mobileMenuButton.classList.remove("active");
-        mobileMenuButton.setAttribute("aria-expanded", "false");
-        mobileMenuButton.setAttribute(
-          "aria-label",
-          "Ouvrir le menu"
-        );
-        header.classList.remove("header-hidden");
-      }
-    });
-  </script>
-
-</body>
-</html>
+    <div
