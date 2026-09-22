@@ -24,6 +24,7 @@
       --bleu: #5274C9;
       --bleu-fonce: #263653;
       --bleu-clair: #EEF4FC;
+      --bleu-carte: #DCE9F8;
       --bleu-section: #E4EEF9;
 
       --corail: #E9A092;
@@ -37,9 +38,9 @@
       --blanc: #FFFFFF;
       --texte: #354052;
       --texte-clair: #687386;
-      --bordure: #DCE6F2;
+      --bordure: #C8D9EC;
 
-      --ombre: 0 8px 24px rgba(38, 54, 83, 0.07);
+      --ombre: 0 8px 24px rgba(38, 54, 83, 0.08);
       --rayon: 16px;
       --rayon-image: 12px;
     }
@@ -72,14 +73,6 @@
       max-width: 100%;
       height: auto;
       display: block;
-    }
-
-    img,
-    .rounded-image,
-    .hero-card img,
-    .personal-photo img,
-    .sport-photo img,
-    .photo-card img {
       border-radius: var(--rayon-image);
     }
 
@@ -147,7 +140,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.97);
+      background: rgba(255, 255, 255, 0.98);
       border-bottom: 1px solid var(--bordure);
       transition:
         transform 0.3s ease,
@@ -159,7 +152,7 @@
     }
 
     header.header-scrolled {
-      box-shadow: 0 5px 16px rgba(38, 54, 83, 0.08);
+      box-shadow: 0 5px 16px rgba(38, 54, 83, 0.1);
     }
 
     .navbar {
@@ -213,6 +206,8 @@
       background: var(--bleu-fonce);
     }
 
+    /* Bouton hamburger */
+
     .mobile-menu-button {
       display: none;
       width: 42px;
@@ -222,6 +217,8 @@
       border-radius: 9px;
       background: var(--bleu-clair);
       cursor: pointer;
+      position: relative;
+      z-index: 1003;
     }
 
     .mobile-menu-button span {
@@ -296,7 +293,7 @@
     .button-coral {
       color: var(--blanc);
       background: var(--corail);
-      box-shadow: 0 6px 14px rgba(233, 160, 146, 0.20);
+      box-shadow: 0 6px 14px rgba(233, 160, 146, 0.2);
     }
 
     .button-coral:hover {
@@ -351,7 +348,7 @@
 
     .hero-card {
       padding: 27px;
-      background: rgba(255, 255, 255, 0.92);
+      background: var(--blanc);
       border: 1px solid var(--bordure);
       border-radius: 22px;
       box-shadow: var(--ombre);
@@ -406,7 +403,7 @@
     }
 
     /* =========================
-       SERVICES
+       SERVICES - CARTES BLEUES
     ========================= */
 
     .cards {
@@ -417,17 +414,17 @@
 
     .card {
       padding: 26px;
-      background: var(--blanc);
-      border: 1px solid var(--bordure);
+      background: var(--bleu-carte);
+      border: 1px solid #C4D8ED;
       border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(38, 54, 83, 0.045);
+      box-shadow: 0 6px 18px rgba(38, 54, 83, 0.06);
       transition: 0.2s ease;
     }
 
     .card:hover,
     .offer-card:hover,
-    .photo-card:hover,
-    .booking-card:hover {
+    .booking-card:hover,
+    .photo-card:hover {
       transform: translateY(-3px);
       box-shadow: var(--ombre);
     }
@@ -455,7 +452,7 @@
     }
 
     .card:nth-child(1) .icon {
-      background: var(--bleu-clair);
+      background: #C9DBF0;
     }
 
     .card:nth-child(2) .icon {
@@ -474,12 +471,12 @@
     }
 
     .card p {
-      color: var(--texte-clair);
+      color: var(--texte);
       font-size: 0.94rem;
     }
 
     /* =========================
-       OFFRES
+       OFFRES - CARTES BLEUES
     ========================= */
 
     .offers-section {
@@ -496,10 +493,10 @@
       display: flex;
       flex-direction: column;
       padding: 24px;
-      background: var(--blanc);
-      border: 1px solid var(--bordure);
+      background: var(--bleu-carte);
+      border: 1px solid #C4D8ED;
       border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(38, 54, 83, 0.045);
+      box-shadow: 0 6px 18px rgba(38, 54, 83, 0.06);
       transition: 0.2s ease;
     }
 
@@ -522,12 +519,12 @@
       place-items: center;
       margin-bottom: 15px;
       border-radius: 13px;
-      background: var(--corail-clair);
+      background: #C9DBF0;
       font-size: 1.45rem;
     }
 
-    .offer-card:nth-child(2) .offer-icon {
-      background: var(--bleu-clair);
+    .offer-card:nth-child(1) .offer-icon {
+      background: var(--corail-clair);
     }
 
     .offer-card:nth-child(3) .offer-icon {
@@ -545,7 +542,7 @@
     .offer-card p {
       min-height: 145px;
       margin-bottom: 12px;
-      color: var(--texte-clair);
+      color: var(--texte);
       font-size: 0.91rem;
       line-height: 1.65;
     }
@@ -553,7 +550,7 @@
     .offer-card ul {
       flex-grow: 1;
       padding-left: 18px;
-      color: var(--texte-clair);
+      color: var(--texte);
       font-size: 0.86rem;
     }
 
@@ -569,7 +566,7 @@
     }
 
     /* =========================
-       RÉSERVATION
+       RÉSERVATION - CARTES BLEUES
     ========================= */
 
     .booking-section {
@@ -584,10 +581,10 @@
 
     .booking-card {
       padding: 28px;
-      background: var(--blanc);
-      border: 1px solid var(--bordure);
+      background: var(--bleu-carte);
+      border: 1px solid #C4D8ED;
       border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(38, 54, 83, 0.045);
+      box-shadow: 0 6px 18px rgba(38, 54, 83, 0.06);
       transition: 0.2s ease;
     }
 
@@ -606,8 +603,8 @@
       place-items: center;
       margin-bottom: 16px;
       border-radius: 50%;
-      background: var(--bleu-clair);
-      color: var(--bleu);
+      background: #C9DBF0;
+      color: var(--bleu-fonce);
       font-size: 0.82rem;
       font-weight: 600;
     }
@@ -626,7 +623,7 @@
     .booking-card p {
       min-height: 105px;
       margin-bottom: 20px;
-      color: var(--texte-clair);
+      color: var(--texte);
       font-size: 0.92rem;
     }
 
@@ -695,7 +692,6 @@
       color: var(--bleu-fonce);
       font-size: clamp(1.5rem, 2.2vw, 2rem);
       line-height: 1.25;
-      font-weight: 600;
     }
 
     .public-grid p {
@@ -711,7 +707,7 @@
 
     .public-item {
       padding: 15px 17px;
-      background: var(--blanc);
+      background: var(--bleu-carte);
       border-left: 3px solid var(--corail);
       border-radius: 0 11px 11px 0;
       color: var(--bleu-fonce);
@@ -736,10 +732,10 @@
 
     .step {
       padding: 23px;
-      background: var(--blanc);
+      background: var(--bleu-carte);
       border-left: 3px solid var(--bleu);
       border-radius: 0 16px 16px 0;
-      box-shadow: 0 6px 17px rgba(38, 54, 83, 0.045);
+      box-shadow: 0 6px 17px rgba(38, 54, 83, 0.05);
     }
 
     .step:nth-child(2) {
@@ -753,7 +749,7 @@
     .step-number {
       display: block;
       margin-bottom: 8px;
-      color: var(--bleu);
+      color: var(--bleu-fonce);
       font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.3px;
@@ -764,7 +760,7 @@
     }
 
     .step:nth-child(3) .step-number {
-      color: var(--vert);
+      color: var(--vert-fonce);
     }
 
     .step h3 {
@@ -774,7 +770,7 @@
     }
 
     .step p {
-      color: var(--texte-clair);
+      color: var(--texte);
       font-size: 0.93rem;
     }
 
@@ -797,10 +793,10 @@
       align-items: flex-start;
       gap: 18px;
       padding: 20px;
-      background: var(--blanc);
-      border: 1px solid var(--bordure);
+      background: var(--bleu-carte);
+      border: 1px solid #C4D8ED;
       border-radius: 14px;
-      box-shadow: 0 5px 15px rgba(38, 54, 83, 0.04);
+      box-shadow: 0 5px 15px rgba(38, 54, 83, 0.05);
     }
 
     .session-step > span {
@@ -830,7 +826,7 @@
     }
 
     .session-step p {
-      color: var(--texte-clair);
+      color: var(--texte);
       font-size: 0.92rem;
     }
 
@@ -850,10 +846,10 @@
 
     .fuel-card {
       padding: 20px;
-      background: var(--blanc);
-      border: 1px solid var(--bordure);
+      background: var(--bleu-carte);
+      border: 1px solid #C4D8ED;
       border-radius: 14px;
-      box-shadow: 0 5px 15px rgba(38, 54, 83, 0.04);
+      box-shadow: 0 5px 15px rgba(38, 54, 83, 0.05);
     }
 
     .fuel-card span {
@@ -892,7 +888,7 @@
     }
 
     .fuel-card p {
-      color: var(--texte-clair);
+      color: var(--texte);
       font-size: 0.86rem;
       line-height: 1.6;
     }
@@ -1106,7 +1102,7 @@
     }
 
     /* =========================
-       TABLETTE
+       RESPONSIVE TABLETTE
     ========================= */
 
     @media (max-width: 1100px) {
@@ -1124,7 +1120,7 @@
     }
 
     /* =========================
-       MOBILE
+       RESPONSIVE MOBILE
     ========================= */
 
     @media (max-width: 850px) {
@@ -1135,6 +1131,17 @@
       section,
       [id] {
         scroll-margin-top: 68px;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transform: translateY(0);
+      }
+
+      header.header-hidden {
+        transform: translateY(-100%);
       }
 
       .navbar {
@@ -1157,35 +1164,31 @@
 
       .mobile-nav {
         position: absolute;
-        top: calc(100% + 1px);
+        top: 100%;
         left: 0;
         right: 0;
+        z-index: 1002;
+
         display: flex;
         flex-direction: column;
         padding: 7px 0;
+
         background: var(--blanc);
         border-top: 1px solid var(--bordure);
-        box-shadow: 0 10px 20px rgba(38, 54, 83, 0.10);
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transform: translateY(-8px);
-        transition:
-          opacity 0.25s ease,
-          transform 0.25s ease,
-          visibility 0.25s ease;
-      }
+        box-shadow: 0 10px 20px rgba(38, 54, 83, 0.12);
 
-      .mobile-nav.open {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
-        transform: translateY(0);
+      }
+
+      .mobile-nav[hidden] {
+        display: none;
       }
 
       .mobile-nav a {
         display: block;
-        padding: 12px 19px;
+        padding: 13px 20px;
         color: var(--texte-clair);
         font-size: 0.9rem;
         font-weight: 500;
@@ -1217,10 +1220,7 @@
 
       .cards,
       .steps,
-      .photo-grid {
-        grid-template-columns: 1fr;
-      }
-
+      .photo-grid,
       .offers-grid,
       .booking-grid {
         grid-template-columns: 1fr;
@@ -1325,16 +1325,14 @@
 
 <body>
 
-  <!-- =========================
-       NAVIGATION
-  ========================= -->
-
+  <!-- Navigation -->
   <header id="site-header">
     <div class="container navbar">
 
       <a class="brand" href="#accueil" aria-label="Accueil NoCrohnLimits">
         <img
-          src="Logo NoCrohnLimits.png"
+          src="Votre-texte-de-paragraphe-1.jpg"
+          alt="Logo NoCrohnLimits"
         >
       </a>
 
@@ -1350,9 +1348,10 @@
       <button
         class="mobile-menu-button"
         id="mobile-menu-button"
+        type="button"
         aria-label="Ouvrir le menu"
         aria-expanded="false"
-        type="button"
+        aria-controls="mobile-nav"
       >
         <span></span>
         <span></span>
@@ -1363,6 +1362,7 @@
         class="mobile-nav"
         id="mobile-nav"
         aria-label="Navigation mobile"
+        hidden
       >
         <a href="#services">Services</a>
         <a href="#offres">Offres</a>
@@ -1379,10 +1379,7 @@
 
   <main>
 
-    <!-- =========================
-         ACCUEIL
-    ========================= -->
-
+    <!-- Accueil -->
     <section class="hero" id="accueil">
       <div class="container hero-grid">
 
@@ -1416,7 +1413,8 @@
 
         <aside class="hero-card">
           <img
-            src="IMG_3585.JPEG"
+            src="Votre-texte-de-paragraphe-1.jpg"
+            alt="Logo NoCrohnLimits"
           >
 
           <h2>Une autre façon d’avancer</h2>
@@ -1431,10 +1429,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         SERVICES
-    ========================= -->
-
+    <!-- Services -->
     <section id="services">
       <div class="container">
 
@@ -1451,7 +1446,7 @@
         <div class="cards">
 
           <article class="card">
-            <div class="icon">🧘</div>
+            <div class="icon">👥</div>
 
             <h3>Méditation de groupe</h3>
 
@@ -1488,10 +1483,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         OFFRES
-    ========================= -->
-
+    <!-- Offres -->
     <section class="offers-section" id="offres">
       <div class="container">
 
@@ -1517,17 +1509,18 @@
             </p>
 
             <ul>
-              <li>Chaque dimanche à 20 h</li>
+              <li>Chaque dimanche vers 20 h ou 20 h 30</li>
               <li>En visioconférence</li>
-              <li>Durée d’environ 45 minutes</li>
+              <li>Durée d’environ 30 minutes</li>
               <li>Groupe limité à 10 personnes</li>
               <li>Temps d’échange après la pratique</li>
               <li>Tarif doux et accessible</li>
             </ul>
 
+            <!-- REMPLACE PAR TON LIEN GOOGLE FORMS -->
             <a
               class="button button-coral offer-button"
-              href="https://forms.gle/eTBzZ5BVrpKxVKFs8"
+              href="https://docs.google.com/forms/d/e/TON-LIEN-GOOGLE-FORM/viewform"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -1554,9 +1547,10 @@
               <li>Prévoir au minimum trois séances pour poser les bases</li>
             </ul>
 
+            <!-- REMPLACE PAR TON LIEN CALENDLY -->
             <a
               class="button button-primary offer-button"
-              href="https://calendly.com/j-fuelperformance/1h"
+              href="https://calendly.com/TON-LIEN-CALENDLY"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -1583,9 +1577,10 @@
               <li>Reprise du sport sans culpabiliser</li>
             </ul>
 
+            <!-- REMPLACE PAR TON LIEN CALENDLY -->
             <a
               class="button button-primary offer-button"
-              href="https://calendly.com/j-fuelperformance/1h"
+              href="https://calendly.com/TON-LIEN-CALENDLY"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -1597,10 +1592,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         RÉSERVATION
-    ========================= -->
-
+    <!-- Réservation -->
     <section class="booking-section" id="reservation">
       <div class="container">
 
@@ -1627,9 +1619,10 @@
               choisissez directement un créneau disponible dans mon agenda Calendly.
             </p>
 
+            <!-- REMPLACE PAR TON LIEN CALENDLY -->
             <a
               class="button button-primary"
-              href="https://calendly.com/j-fuelperformance/1h"
+              href="https://calendly.com/TON-LIEN-CALENDLY"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -1648,9 +1641,10 @@
               les informations pratiques.
             </p>
 
+            <!-- REMPLACE PAR TON LIEN GOOGLE FORMS -->
             <a
               class="button button-coral"
-              href="https://forms.gle/r4mMXEe3zjSNYRo47"
+              href="https://docs.google.com/forms/d/e/TON-LIEN-GOOGLE-FORM/viewform"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -1662,10 +1656,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         PHOTOS
-    ========================= -->
-
+    <!-- Photos -->
     <section class="photos-section" id="photos">
       <div class="container">
 
@@ -1673,13 +1664,19 @@
           <p class="small-label">MON UNIVERS</p>
 
           <h2>Quelques images de mon approche</h2>
+
+          <p>
+            Remplace les images ci-dessous par tes propres photos de sport,
+            de méditation, d’ateliers ou de ton environnement de travail.
+          </p>
         </div>
 
         <div class="photo-grid">
 
           <article class="photo-card">
             <img
-              src="tri lauterbourg.jpg"
+              src="photo-sport.jpg"
+              alt="Jérémy pendant une activité sportive"
             >
 
             <div class="photo-card-content">
@@ -1694,7 +1691,8 @@
 
           <article class="photo-card">
             <img
-              src="respiration.jpg"
+              src="meditation-jerem.jpg"
+              alt="Jérémy en position de méditation"
             >
 
             <div class="photo-card-content">
@@ -1709,7 +1707,8 @@
 
           <article class="photo-card">
             <img
-              src="meditation groupe.png"
+              src="photo-atelier.jpg"
+              alt="Atelier de méditation en groupe"
             >
 
             <div class="photo-card-content">
@@ -1726,10 +1725,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         PUBLIC
-    ========================= -->
-
+    <!-- Public -->
     <section class="public-section" id="public">
       <div class="container public-grid">
 
@@ -1774,10 +1770,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         MÉTHODE
-    ========================= -->
-
+    <!-- Méthode -->
     <section id="methode">
       <div class="container">
 
@@ -1830,10 +1823,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         SÉANCE
-    ========================= -->
-
+    <!-- Séance -->
     <section class="real-session-section" id="seance">
       <div class="container">
 
@@ -1893,10 +1883,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         FUEL PERFORMANCE
-    ========================= -->
-
+    <!-- Fuel Performance -->
     <section class="fuel-section" id="fuel-performance">
       <div class="container">
 
@@ -1975,16 +1962,14 @@
       </div>
     </section>
 
-    <!-- =========================
-         HISTOIRE PERSONNELLE
-    ========================= -->
-
+    <!-- Histoire personnelle -->
     <section class="personal-section" id="moi">
       <div class="container personal-grid">
 
         <div class="personal-photo">
           <img
-            src="IMG_6690.png"
+            src="meditation-jerem.jpg"
+            alt="Jérémy en position de méditation"
           >
         </div>
 
@@ -2027,10 +2012,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         PARCOURS SPORTIF
-    ========================= -->
-
+    <!-- Parcours sportif -->
     <section class="sport-section" id="parcours">
       <div class="container sport-grid">
 
@@ -2060,17 +2042,15 @@
 
         <div class="sport-photo">
           <img
-            src="photo jeremy Nice.JPG"
+            src="photo-triathlon.jpg"
+            alt="Jérémy pendant une activité de triathlon"
           >
         </div>
 
       </div>
     </section>
 
-    <!-- =========================
-         MICI
-    ========================= -->
-
+    <!-- MICI -->
     <section class="mici-section" id="mici">
       <div class="container mici-content">
 
@@ -2099,10 +2079,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         CONTACT
-    ========================= -->
-
+    <!-- Contact -->
     <section class="cta" id="contact">
       <div class="container">
 
@@ -2134,9 +2111,115 @@
 
   </main>
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
+  <!-- Footer -->
   <footer>
-    <div
+    <div class="container footer-content">
+      <p>
+        <strong>NoCrohnLimits</strong> —
+        Méditation, préparation mentale et équilibre
+      </p>
+
+      <p>
+        © 2026 NoCrohnLimits. Tous droits réservés.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript menu mobile et bannière -->
+  <script>
+    const header = document.getElementById("site-header");
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileNav = document.getElementById("mobile-nav");
+
+    let lastScrollY = window.scrollY;
+    let scrollTicking = false;
+    let menuIsOpen = false;
+
+    function openMobileMenu() {
+      menuIsOpen = true;
+
+      mobileNav.hidden = false;
+      mobileMenuButton.classList.add("active");
+      mobileMenuButton.setAttribute("aria-expanded", "true");
+      mobileMenuButton.setAttribute("aria-label", "Fermer le menu");
+
+      header.classList.remove("header-hidden");
+    }
+
+    function closeMobileMenu() {
+      menuIsOpen = false;
+
+      mobileNav.hidden = true;
+      mobileMenuButton.classList.remove("active");
+      mobileMenuButton.setAttribute("aria-expanded", "false");
+      mobileMenuButton.setAttribute("aria-label", "Ouvrir le menu");
+    }
+
+    mobileMenuButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      if (menuIsOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+
+    document.querySelectorAll(".mobile-nav a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!header.contains(event.target) && menuIsOpen) {
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menuIsOpen) {
+        closeMobileMenu();
+        mobileMenuButton.focus();
+      }
+    });
+
+    function updateHeaderOnScroll() {
+      const currentScrollY = window.scrollY;
+      const scrollDifference = currentScrollY - lastScrollY;
+
+      if (currentScrollY > 10) {
+        header.classList.add("header-scrolled");
+      } else {
+        header.classList.remove("header-scrolled");
+      }
+
+      /*
+        La bannière reste visible lorsque le menu est ouvert.
+      */
+      if (window.innerWidth <= 850 && !menuIsOpen) {
+        if (currentScrollY > 90 && scrollDifference > 5) {
+          header.classList.add("header-hidden");
+        }
+
+        if (scrollDifference < -5 || currentScrollY <= 90) {
+          header.classList.remove("header-hidden");
+        }
+      } else {
+        header.classList.remove("header-hidden");
+      }
+
+      lastScrollY = currentScrollY;
+      scrollTicking = false;
+    }
+
+    window.addEventListener("scroll", () => {
+      if (!scrollTicking) {
+        window.requestAnimationFrame(updateHeaderOnScroll);
+        scrollTicking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 850) {
+        closeMobileMenu();
