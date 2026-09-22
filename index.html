@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>NoCrohnLimits | Méditation et préparation mentale</title>
+  <title>Jérémy | Méditation et préparation mentale</title>
 
   <meta
     name="description"
-    content="Méditation, préparation mentale et accompagnement des sportifs. Des séances individuelles et collectives pour développer calme, confiance, concentration et régularité."
+    content="Jérémy propose des séances de méditation et de préparation mentale autour de Roeschwoog et en visioconférence, pour les sportifs et toute personne souhaitant prendre soin de son mental."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,8 +79,8 @@
     .hero-card img,
     .about-logo img,
     .personal-photo img,
-    .photo-card img,
-    .content-image {
+    .sport-photo img,
+    .photo-card img {
       border-radius: var(--rayon-image);
     }
 
@@ -127,6 +127,17 @@
       font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.7px;
+    }
+
+    .personal-quote {
+      margin: 22px 0;
+      padding: 18px 20px;
+      background: var(--blanc);
+      border-left: 4px solid var(--corail);
+      border-radius: 0 12px 12px 0;
+      color: var(--bleu-fonce);
+      font-size: 1.02rem;
+      font-style: italic;
     }
 
     /* =========================
@@ -182,7 +193,7 @@
 
     .desktop-nav a {
       color: var(--texte-clair);
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 500;
       white-space: nowrap;
     }
@@ -202,8 +213,6 @@
       color: var(--blanc);
       background: var(--bleu-fonce);
     }
-
-    /* Menu mobile */
 
     .mobile-menu-button {
       display: none;
@@ -282,7 +291,6 @@
     }
 
     .button-secondary:hover {
-      color: var(--bleu-fonce);
       background: var(--blanc);
     }
 
@@ -329,7 +337,7 @@
     }
 
     .hero-text {
-      max-width: 640px;
+      max-width: 660px;
       margin-bottom: 28px;
       color: var(--texte-clair);
       font-size: 1rem;
@@ -447,17 +455,14 @@
     }
 
     .card:nth-child(1) .icon {
-      color: var(--bleu);
       background: var(--bleu-clair);
     }
 
     .card:nth-child(2) .icon {
-      color: var(--corail-fonce);
       background: var(--corail-clair);
     }
 
     .card:nth-child(3) .icon {
-      color: var(--vert);
       background: var(--vert-clair);
     }
 
@@ -557,7 +562,7 @@
     }
 
     /* =========================
-       SECTION PHOTOS
+       PHOTOS
     ========================= */
 
     .photos-section {
@@ -705,45 +710,44 @@
     }
 
     /* =========================
-       SECTION PERSONNELLE
+       PARCOURS SPORTIF
     ========================= */
 
-    .personal-section {
+    .sport-section {
       background: var(--vert-clair);
     }
 
-    .personal-grid {
+    .sport-grid {
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
+      grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
       gap: 48px;
     }
 
-    .personal-photo {
+    .sport-text h2 {
+      margin-bottom: 16px;
+      color: var(--bleu-fonce);
+      font-size: clamp(1.5rem, 2.2vw, 2.05rem);
+      line-height: 1.25;
+    }
+
+    .sport-text p {
+      margin-bottom: 14px;
+      color: var(--texte-clair);
+      font-size: 0.96rem;
+    }
+
+    .sport-photo {
       padding: 18px;
       background: var(--blanc);
       border-radius: 21px;
       box-shadow: var(--ombre);
     }
 
-    .personal-photo img {
+    .sport-photo img {
       width: 100%;
       min-height: 300px;
       object-fit: cover;
-    }
-
-    .personal-text h2 {
-      margin-bottom: 16px;
-      color: var(--bleu-fonce);
-      font-size: clamp(1.5rem, 2.2vw, 2.05rem);
-      line-height: 1.25;
-      font-weight: 600;
-    }
-
-    .personal-text p {
-      margin-bottom: 14px;
-      color: var(--texte-clair);
-      font-size: 0.96rem;
     }
 
     /* =========================
@@ -803,53 +807,107 @@
     }
 
     /* =========================
-       PARCOURS SPORTIF
+       HISTOIRE PERSONNELLE
     ========================= */
 
-    #parcours {
+    .personal-section {
       background: var(--bleu-section);
     }
 
-    .about {
+    .personal-grid {
       display: grid;
       grid-template-columns: 0.8fr 1.2fr;
       align-items: center;
       gap: 48px;
     }
 
-    .about-logo {
-      padding: 32px;
+    .personal-photo {
+      padding: 18px;
       background: var(--blanc);
       border-radius: 21px;
       box-shadow: var(--ombre);
     }
 
-    .about-logo img {
+    .personal-photo img {
       width: 100%;
+      min-height: 300px;
+      object-fit: cover;
     }
 
-    .about-text h2 {
+    .personal-text h2 {
       margin-bottom: 16px;
       color: var(--bleu-fonce);
       font-size: clamp(1.5rem, 2.2vw, 2.05rem);
       line-height: 1.25;
-      font-weight: 600;
     }
 
-    .about-text p {
+    .personal-text p {
       margin-bottom: 14px;
       color: var(--texte-clair);
       font-size: 0.96rem;
     }
 
-    .note {
-      margin-top: 20px;
-      padding: 15px;
+    /* =========================
+       FUEL PERFORMANCE
+    ========================= */
+
+    .fuel-section {
+      background: rgba(255, 255, 255, 0.42);
+    }
+
+    .fuel-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .fuel-card {
+      padding: 20px;
       background: var(--blanc);
-      border-left: 3px solid var(--vert);
-      border-radius: 0 11px 11px 0;
-      color: var(--vert-fonce);
-      font-size: 0.88rem;
+      border: 1px solid var(--bordure);
+      border-radius: 14px;
+      box-shadow: 0 5px 15px rgba(38, 54, 83, 0.04);
+    }
+
+    .fuel-card span {
+      display: inline-grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      margin-bottom: 13px;
+      border-radius: 50%;
+      color: var(--blanc);
+      background: var(--bleu);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .fuel-card:nth-child(2) span {
+      background: var(--corail);
+    }
+
+    .fuel-card:nth-child(3) span {
+      background: var(--vert);
+    }
+
+    .fuel-card:nth-child(4) span {
+      background: var(--bleu-fonce);
+    }
+
+    .fuel-card:nth-child(5) span {
+      background: var(--corail-fonce);
+    }
+
+    .fuel-card h3 {
+      margin-bottom: 8px;
+      color: var(--bleu-fonce);
+      font-size: 0.98rem;
+    }
+
+    .fuel-card p {
+      color: var(--texte-clair);
+      font-size: 0.86rem;
+      line-height: 1.6;
     }
 
     /* =========================
@@ -886,7 +944,6 @@
       color: var(--blanc);
       font-size: clamp(1.5rem, 2.2vw, 2.05rem);
       line-height: 1.25;
-      font-weight: 600;
     }
 
     .mici-content p {
@@ -938,23 +995,22 @@
       margin-bottom: 14px;
       font-size: clamp(1.55rem, 2.6vw, 2.25rem);
       line-height: 1.25;
-      font-weight: 600;
     }
 
     .cta-box p {
       max-width: 700px;
-      margin: 0 auto 25px;
+      margin: 0 auto 18px;
       color: #F2F5FC;
       font-size: 0.96rem;
     }
 
     .cta-box .button {
+      margin-top: 8px;
       color: var(--blanc);
       background: var(--corail);
     }
 
     .cta-box .button:hover {
-      color: var(--blanc);
       background: var(--corail-fonce);
     }
 
@@ -981,20 +1037,24 @@
     }
 
     /* =========================
-       TABLETTE
+       RESPONSIVE TABLETTE
     ========================= */
 
-    @media (max-width: 1050px) {
+    @media (max-width: 1100px) {
       .desktop-nav {
-        gap: 10px;
+        gap: 9px;
       }
 
       .desktop-nav a {
-        font-size: 0.78rem;
+        font-size: 0.75rem;
       }
 
       .offers-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .fuel-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .offer-card p {
@@ -1003,7 +1063,7 @@
     }
 
     /* =========================
-       MOBILE
+       RESPONSIVE MOBILE
     ========================= */
 
     @media (max-width: 850px) {
@@ -1079,8 +1139,8 @@
 
       .hero-grid,
       .public-grid,
-      .about,
-      .personal-grid {
+      .personal-grid,
+      .sport-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1088,7 +1148,9 @@
         padding-top: 55px;
       }
 
-      .hero-card {
+      .hero-card,
+      .personal-photo,
+      .sport-photo {
         max-width: 500px;
       }
 
@@ -1098,8 +1160,8 @@
         grid-template-columns: 1fr;
       }
 
-      .personal-photo {
-        max-width: 500px;
+      .fuel-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -1111,8 +1173,8 @@
 
       .section-title h2,
       .public-grid h2,
-      .about-text h2,
       .personal-text h2,
+      .sport-text h2,
       .mici-content h2 {
         font-size: 1.5rem;
         line-height: 1.25;
@@ -1127,7 +1189,8 @@
         font-size: 0.95rem;
       }
 
-      .offers-grid {
+      .offers-grid,
+      .fuel-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1195,7 +1258,8 @@
 
       <a class="brand" href="#accueil" aria-label="Accueil NoCrohnLimits">
         <img
-          src="Logo NoCrohnLimits.png"
+          src="Votre-texte-de-paragraphe-1.jpg"
+          alt="Logo NoCrohnLimits"
         >
       </a>
 
@@ -1203,8 +1267,7 @@
         <a href="#services">Services</a>
         <a href="#offres">Offres</a>
         <a href="#photos">Photos</a>
-        <a href="#public">Pour qui ?</a>
-        <a href="#parcours">Mon parcours</a>
+        <a href="#parcours">Parcours</a>
         <a href="#contact" class="nav-button">Contact</a>
       </nav>
 
@@ -1230,7 +1293,7 @@
         <a href="#photos">Photos</a>
         <a href="#public">Pour qui ?</a>
         <a href="#methode">Méthode</a>
-        <a href="#parcours">Mon parcours</a>
+        <a href="#parcours">Parcours</a>
         <a href="#contact">Me contacter</a>
       </nav>
 
@@ -1247,33 +1310,37 @@
       <div class="container hero-grid">
 
         <div>
-          <p class="badge">Calme • Confiance • Progression</p>
+          <p class="badge">
+            Méditation • Préparation mentale • Équilibre
+          </p>
 
           <h1>
-            Retrouvez votre calme,
-            <span>votre confiance et votre élan.</span>
+            Ce qui vous arrive ne vous définit pas.
+            <span>La manière dont vous le vivez peut évoluer.</span>
           </h1>
 
           <p class="hero-text">
-            J’accompagne les sportifs, les personnes stressées et toute personne
-            souhaitant avancer plus sereinement grâce à la méditation et à la
-            préparation mentale.
+            Je m’appelle Jérémy. Je suis préparateur mental et coach en méditation.
+            J’accompagne les sportifs, les personnes qui souhaitent reprendre
+            une activité et toute personne qui veut prendre soin de son mental,
+            en présentiel autour de Roeschwoog ou en visioconférence.
           </p>
 
           <div class="hero-buttons">
             <a class="button button-primary" href="#offres">
-              Découvrir les offres
+              Découvrir mes accompagnements
             </a>
 
             <a class="button button-secondary" href="#contact">
-              Prendre contact
+              Échanger avec moi
             </a>
           </div>
         </div>
 
         <aside class="hero-card">
           <img
-            src="IMG_3585.JPEG"
+            src="Votre-texte-de-paragraphe-1.jpg"
+            alt="Logo NoCrohnLimits"
           >
 
           <h2>Un pas après l’autre</h2>
@@ -1298,9 +1365,9 @@
           <h2>Des outils pour avancer à votre rythme</h2>
 
           <p>
-            Chaque accompagnement est adapté à votre objectif : mieux gérer
-            le stress, développer votre confiance, préparer un défi sportif
-            ou installer une pratique de méditation dans votre quotidien.
+            Chaque accompagnement part de votre intention et de votre objectif.
+            Nous cherchons ensemble des actions réalistes, compatibles avec
+            vos priorités et votre quotidien.
           </p>
         </div>
 
@@ -1309,11 +1376,11 @@
           <article class="card">
             <div class="icon">🧘</div>
 
-            <h3>Méditation et gestion du stress</h3>
+            <h3>Méditation et gestion du mental</h3>
 
             <p>
-              Des pratiques accessibles pour calmer le mental, améliorer
-              la concentration et retrouver un espace de calme au quotidien.
+              Des pratiques simples pour déposer une partie de la charge mentale,
+              retrouver davantage d’apaisement et développer une meilleure clarté.
             </p>
           </article>
 
@@ -1323,8 +1390,8 @@
             <h3>Préparation mentale</h3>
 
             <p>
-              Des outils pour développer la confiance, gérer la pression,
-              clarifier vos objectifs et passer à l’action.
+              Un accompagnement structuré pour mieux comprendre vos freins,
+              clarifier votre intention et avancer vers un objectif qui a du sens.
             </p>
           </article>
 
@@ -1334,8 +1401,9 @@
             <h3>Accompagnement des sportifs</h3>
 
             <p>
-              Un soutien mental pour mieux vous préparer, rester régulier
-              et gérer les périodes de doute avant ou pendant une compétition.
+              Un soutien mental pour les sportifs amateurs ou confirmés,
+              mais aussi pour ceux qui souhaitent reprendre une activité
+              sans culpabiliser.
             </p>
           </article>
 
@@ -1354,9 +1422,8 @@
           <h2>Ce que je propose</h2>
 
           <p>
-            Des séances accessibles et progressives, en individuel ou en groupe,
-            pour travailler sur le calme, la confiance, la concentration
-            et la régularité.
+            Des séances individuelles et collectives, en présentiel autour
+            de Roeschwoog ou en visioconférence.
           </p>
         </div>
 
@@ -1368,15 +1435,17 @@
             <h3>Méditation individuelle</h3>
 
             <p>
-              Un accompagnement personnalisé pour découvrir la méditation,
-              apprendre à se recentrer et installer une pratique simple
-              dans son quotidien.
+              Pour moi, méditer ne signifie pas arrêter de penser. C’est impossible.
+              Il s’agit plutôt de laisser les pensées passer sans s’y accrocher,
+              puis de ramener doucement son attention vers la respiration.
             </p>
 
             <ul>
               <li>Séance adaptée à votre niveau</li>
+              <li>Pratique neutre et accessible</li>
               <li>Respiration et méditation guidée</li>
-              <li>Exercice simple à refaire chez soi</li>
+              <li>Durée possible de 10 à 30 minutes</li>
+              <li>Outils à réutiliser seul ensuite</li>
             </ul>
           </article>
 
@@ -1386,15 +1455,18 @@
             <h3>Méditation de groupe</h3>
 
             <p>
-              Des séances en petit groupe, en présentiel ou en visioconférence,
-              autour d’un thème concret comme le calme, le sommeil
-              ou la concentration.
+              Certaines personnes ont du mal à pratiquer seules. Le groupe
+              crée un rendez-vous, un cadre et une énergie particulière pendant
+              la méditation.
             </p>
 
             <ul>
-              <li>Durée de 30 à 45 minutes</li>
-              <li>Accessible aux débutants</li>
-              <li>Temps d’échange facultatif</li>
+              <li>Présentiel autour de Roeschwoog ou visioconférence</li>
+              <li>Séance d’environ 30 minutes</li>
+              <li>Groupe limité à 10 personnes au lancement</li>
+              <li>Temps d’échange après la pratique</li>
+              <li>Rendez-vous hebdomadaire vers 20 h ou 20 h 30</li>
+              <li>Tarif doux pour rester accessible</li>
             </ul>
           </article>
 
@@ -1404,15 +1476,17 @@
             <h3>Préparation mentale</h3>
 
             <p>
-              Un accompagnement pour mieux gérer la pression, renforcer
-              la confiance, clarifier un objectif et passer progressivement
-              à l’action.
+              La préparation mentale ne concerne pas uniquement la performance.
+              Elle peut aider à comprendre certains blocages, sortir d’un cycle
+              de sabotage et avancer vers un objectif qui compte réellement.
             </p>
 
             <ul>
-              <li>Objectif clairement défini</li>
-              <li>Exercices mentaux personnalisés</li>
-              <li>Plan d’action entre les séances</li>
+              <li>Clarifier votre intention</li>
+              <li>Identifier vos freins</li>
+              <li>Explorer vos priorités personnelles</li>
+              <li>Construire des étapes réalistes</li>
+              <li>Avancer avec davantage d’équilibre</li>
             </ul>
           </article>
 
@@ -1422,15 +1496,17 @@
             <h3>Préparation mentale sportive</h3>
 
             <p>
-              Un accompagnement destiné aux sportifs amateurs qui souhaitent
-              mieux gérer les entraînements, la compétition et les périodes
+              Un accompagnement pour les sportifs qui souhaitent mieux gérer
+              les entraînements, la compétition, la pression et les périodes
               de doute.
             </p>
 
             <ul>
-              <li>Préparation avant compétition</li>
+              <li>Sportifs amateurs ou confirmés</li>
+              <li>Préparation avant une compétition</li>
               <li>Gestion du stress et de la pression</li>
               <li>Concentration et régularité</li>
+              <li>Reprise du sport sans culpabiliser</li>
             </ul>
           </article>
 
@@ -1439,7 +1515,7 @@
     </section>
 
     <!-- =========================
-         PHOTOS À PERSONNALISER
+         PHOTOS
     ========================= -->
 
     <section class="photos-section" id="photos">
@@ -1449,51 +1525,59 @@
           <p class="small-label">MON UNIVERS</p>
 
           <h2>Quelques images de mon approche</h2>
+
+          <p>
+            Remplace les images ci-dessous par tes propres photos de sport,
+            de méditation, d’ateliers ou de ton environnement de travail.
+          </p>
         </div>
 
         <div class="photo-grid">
 
           <article class="photo-card">
             <img
-              src="tri lauterbourg.jpg"
+              src="photo-sport.jpg"
+              alt="Jérémy pendant une activité sportive"
             >
 
             <div class="photo-card-content">
               <h3>Le sport au quotidien</h3>
 
               <p>
-                Une pratique personnelle qui nourrit ma compréhension
-                des sportifs amateurs.
+                Je pratique le triathlon depuis huit ans et je participe
+                généralement à deux ou trois triathlons par an.
               </p>
             </div>
           </article>
 
           <article class="photo-card">
             <img
-              src="respiration.jpg"
+              src="photo-meditation.jpg"
+              alt="Jérémy en position de méditation"
             >
 
             <div class="photo-card-content">
               <h3>La méditation</h3>
 
               <p>
-                Des pratiques simples pour apprendre à ralentir
-                et se recentrer.
+                Un moment pour soi, pour laisser passer les pensées
+                et retrouver davantage de clarté mentale.
               </p>
             </div>
           </article>
 
           <article class="photo-card">
             <img
-              src="meditation groupe.png"
+              src="photo-atelier.jpg"
+              alt="Atelier de méditation en groupe"
             >
 
             <div class="photo-card-content">
-              <h3>Les séances de groupe</h3>
+              <h3>La pratique en groupe</h3>
 
               <p>
-                Un cadre accessible pour pratiquer, échanger
-                et progresser ensemble.
+                Un cadre pour pratiquer ensemble et apprendre progressivement
+                à méditer de manière autonome.
               </p>
             </div>
           </article>
@@ -1513,8 +1597,10 @@
           <h2>Pour qui sont ces accompagnements ?</h2>
 
           <p>
-            Ces séances s’adressent à toute personne qui souhaite travailler
-            sur son calme, sa confiance, sa concentration ou sa régularité.
+            Je souhaite aider toute personne qui en ressent le besoin :
+            un sportif amateur ou confirmé, une personne qui veut reprendre
+            une activité ou quelqu’un qui souhaite simplement prendre soin
+            de son mental.
           </p>
 
           <p>
@@ -1529,15 +1615,15 @@
           </div>
 
           <div class="public-item">
-            ✓ Personnes stressées ou mentalement surchargées
+            ✓ Personnes mentalement surchargées
           </div>
 
           <div class="public-item">
-            ✓ Sportifs amateurs et compétiteurs
+            ✓ Sportifs amateurs ou confirmés
           </div>
 
           <div class="public-item">
-            ✓ Personnes souhaitant retrouver motivation et confiance
+            ✓ Personnes souhaitant reprendre une activité
           </div>
 
           <div class="public-item">
@@ -1556,11 +1642,12 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Une méthode simple et progressive</h2>
+          <h2>Une méthode calme, structurée et progressive</h2>
 
           <p>
-            L’objectif n’est pas de rechercher la perfection, mais de construire
-            des outils réalistes que vous pouvez utiliser dans votre quotidien.
+            Vous définissez votre intention et votre objectif. Nous cherchons
+            ensuite ensemble des étapes réalistes, en tenant compte de ce qui
+            compte réellement pour vous.
           </p>
         </div>
 
@@ -1572,30 +1659,30 @@
             <h3>Faire le point</h3>
 
             <p>
-              Un premier échange pour comprendre votre situation, votre objectif
-              et ce dont vous avez réellement besoin.
+              Comprendre votre situation, votre intention et ce que vous
+              souhaitez réellement faire évoluer.
             </p>
           </article>
 
           <article class="step">
-            <span class="step-number">02 — PRATIQUER</span>
+            <span class="step-number">02 — COMPRENDRE</span>
 
-            <h3>Tester des outils simples</h3>
+            <h3>Identifier les freins</h3>
 
             <p>
-              Respiration, méditation guidée, visualisation, routines mentales
-              et exercices adaptés à votre niveau.
+              Observer les blocages, les pensées et les habitudes qui peuvent
+              vous empêcher d’avancer.
             </p>
           </article>
 
           <article class="step">
             <span class="step-number">03 — AVANCER</span>
 
-            <h3>Créer de la régularité</h3>
+            <h3>Mettre en pratique</h3>
 
             <p>
-              Mettre en place des actions réalistes pour progresser avec
-              davantage de calme, de confiance et de constance.
+              Construire des actions simples et réalisables pour progresser
+              sans vous forcer à aller contre vos priorités.
             </p>
           </article>
 
@@ -1604,7 +1691,7 @@
     </section>
 
     <!-- =========================
-         À QUOI RESSEMBLE UNE SÉANCE ?
+         SÉANCE
     ========================= -->
 
     <section class="real-session-section" id="seance">
@@ -1630,7 +1717,8 @@
               <h3>Nous échangeons</h3>
 
               <p>
-                Vous expliquez ce qui vous amène et ce que vous aimeriez améliorer.
+                Vous expliquez ce qui vous amène, ce que vous ressentez
+                et ce que vous aimeriez améliorer.
               </p>
             </div>
           </div>
@@ -1643,7 +1731,7 @@
 
               <p>
                 Je vous guide dans un exercice de respiration, de méditation
-                ou de préparation mentale.
+                ou de préparation mentale adapté à votre situation.
               </p>
             </div>
           </div>
@@ -1656,7 +1744,7 @@
 
               <p>
                 Vous repartez avec une pratique simple que vous pouvez tester
-                chez vous ou dans votre entraînement.
+                chez vous ou intégrer à votre entraînement.
               </p>
             </div>
           </div>
@@ -1666,41 +1754,135 @@
     </section>
 
     <!-- =========================
-         PRÉSENTATION PERSONNELLE
+         FUEL PERFORMANCE
+    ========================= -->
+
+    <section class="fuel-section" id="fuel-performance">
+      <div class="container">
+
+        <div class="section-title">
+          <p class="small-label">MON APPROCHE</p>
+
+          <h2>
+            Fuel Performance : avancer à partir de ce qui compte vraiment pour vous.
+          </h2>
+
+          <p>
+            J’ai construit Fuel Performance à partir de mes formations, de mes
+            lectures, de ma pratique et de mon expérience personnelle.
+            Les priorités de la personne restent au premier plan.
+          </p>
+        </div>
+
+        <div class="fuel-grid">
+
+          <article class="fuel-card">
+            <span>01</span>
+
+            <h3>Clarifier</h3>
+
+            <p>
+              Comprendre ce que vous voulez réellement et pourquoi cet objectif
+              compte pour vous.
+            </p>
+          </article>
+
+          <article class="fuel-card">
+            <span>02</span>
+
+            <h3>Observer</h3>
+
+            <p>
+              Identifier les pensées, les peurs, les blocages et les habitudes
+              qui influencent votre manière d’avancer.
+            </p>
+          </article>
+
+          <article class="fuel-card">
+            <span>03</span>
+
+            <h3>Rééquilibrer</h3>
+
+            <p>
+              Porter un regard plus nuancé sur la situation et sortir d’une
+              vision trop rigide ou trop polarisée.
+            </p>
+          </article>
+
+          <article class="fuel-card">
+            <span>04</span>
+
+            <h3>Agir</h3>
+
+            <p>
+              Définir des actions simples, réalistes et compatibles avec
+              vos priorités personnelles.
+            </p>
+          </article>
+
+          <article class="fuel-card">
+            <span>05</span>
+
+            <h3>Consolider</h3>
+
+            <p>
+              Installer progressivement une nouvelle manière d’avancer
+              avec plus de régularité et d’équilibre.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         HISTOIRE PERSONNELLE
     ========================= -->
 
     <section class="personal-section" id="moi">
       <div class="container personal-grid">
 
         <div class="personal-photo">
+          <!-- Remplace meditation-jerem.jpg par ton image réelle -->
           <img
-            src="IMG_6690.png"
+            src="meditation-jerem.jpg"
+            alt="Jérémy en position de méditation"
           >
         </div>
 
         <div class="personal-text">
-          <p class="small-label">QUI SUIS-JE ?</p>
+          <p class="small-label">MON HISTOIRE</p>
 
-          <h2>Une approche nourrie par une expérience réelle</h2>
+          <h2>Une maladie qui ne me définit pas</h2>
 
           <p>
-            Je pratique les sports d’endurance, notamment la natation,
-            le vélo, la course à pied et le triathlon. Cette expérience
-            m’aide à comprendre les défis rencontrés par les sportifs amateurs :
-            pression, doute, motivation et régularité.
+            Je m’appelle Jérémy. Pendant plusieurs années, j’ai vécu une période
+            d’errance médicale avant que la maladie de Crohn soit diagnostiquée.
+            Cette période a été difficile physiquement, mais aussi mentalement.
           </p>
 
           <p>
-            Mon parcours avec la maladie de Crohn m’a également amené
-            à chercher des outils pour mieux avancer avec mon corps et mon mental.
-            La méditation et la préparation mentale ont pris une place importante
-            dans ce chemin.
+            Pourtant, avec le recul, cette maladie est aussi l’une des choses
+            qui m’a le plus permis de me découvrir. Elle m’a appris que rien
+            n’est définitivement acquis et que l’on ne peut pas toujours
+            changer ce qui nous arrive.
+          </p>
+
+          <blockquote class="personal-quote">
+            « Tu ne peux pas toujours changer ce qui t’arrive,
+            mais tu peux changer la façon dont tu le vis. »
+          </blockquote>
+
+          <p>
+            Cette phrase est devenue mon mantra. C’est à travers cette expérience
+            que j’ai découvert l’importance du mental, de la méditation et
+            du bien-être.
           </p>
 
           <p>
-            Je ne propose pas une méthode magique. Je souhaite partager
-            des outils concrets, accessibles et adaptés à la réalité
-            de chaque personne.
+            Ces outils m’ont aidé dans mon propre parcours et dans ma pratique
+            sportive. J’ai ensuite voulu me former pour pouvoir les transmettre
+            à mon tour.
           </p>
         </div>
 
@@ -1708,43 +1890,42 @@
     </section>
 
     <!-- =========================
-         PARCOURS
+         PARCOURS SPORTIF
     ========================= -->
 
-    <section id="parcours">
-      <div class="container about">
+    <section class="sport-section" id="parcours">
+      <div class="container sport-grid">
 
-        <div class="about-logo">
-          <img
-            src="Logo NoCrohnLimits.png"
-          >
+        <div class="sport-text">
+          <p class="small-label">MON RAPPORT AU SPORT</p>
+
+          <h2>Le triathlon m’apprend aussi à avancer étape par étape.</h2>
+
+          <p>
+            Je pratique le triathlon depuis huit ans et je participe généralement
+            à deux ou trois triathlons par an.
+          </p>
+
+          <p>
+            La natation, le vélo et la course à pied m’ont appris que la progression
+            ne dépend pas uniquement de la motivation. Elle dépend aussi de la
+            régularité, de la capacité à accepter les périodes difficiles et
+            de la manière dont on se parle lorsque les choses ne se passent
+            pas comme prévu.
+          </p>
+
+          <p>
+            C’est cette expérience de sportif amateur que je souhaite également
+            mettre au service des personnes que j’accompagne.
+          </p>
         </div>
 
-        <div class="about-text">
-          <h2>Mon parcours avec la méditation et la préparation mentale</h2>
-
-          <p>
-            Mon expérience personnelle m’a conduit à découvrir la méditation,
-            la préparation mentale et l’importance d’une progression adaptée
-            à chaque personne.
-          </p>
-
-          <p>
-            Ces outils m’ont aidé à mieux gérer certaines périodes difficiles,
-            à retrouver confiance et à avancer étape par étape.
-          </p>
-
-          <p>
-            Aujourd’hui, je propose ces outils aux sportifs, aux personnes
-            stressées et à toute personne souhaitant développer davantage
-            de calme, de confiance et de régularité dans son quotidien.
-          </p>
-
-          <div class="note">
-            Les accompagnements proposés sont orientés bien-être, développement
-            personnel et préparation mentale. Ils ne remplacent pas un suivi
-            médical, psychologique ou thérapeutique.
-          </div>
+        <div class="sport-photo">
+          <!-- Remplace photo-triathlon.jpg par une vraie photo de triathlon -->
+          <img
+            src="photo-triathlon.jpg"
+            alt="Jérémy pendant une activité de triathlon"
+          >
         </div>
 
       </div>
@@ -1757,18 +1938,22 @@
     <section class="mici-section" id="mici">
       <div class="container mici-content">
 
-        <h2>Une attention particulière aux parcours de santé</h2>
+        <h2>Une maladie qui est devenue une force</h2>
 
         <p>
-          Mon expérience personnelle avec la maladie de Crohn m’a aussi sensibilisé
-          aux difficultés que peuvent rencontrer les personnes vivant avec une
-          maladie chronique.
+          Ma maladie de Crohn fait partie de mon histoire, mais elle ne définit
+          pas qui je suis et ne détermine pas ce que je peux accomplir.
+        </p>
+
+        <p>
+          Elle m’a amené à mieux me connaître, à découvrir l’importance du mental
+          et à comprendre que l’équilibre se construit progressivement.
         </p>
 
         <p>
           Cette expérience peut être un point de compréhension supplémentaire,
-          mais mes accompagnements ne sont pas réservés aux personnes atteintes
-          d’une MICI et ne remplacent jamais un suivi médical.
+          mais mes accompagnements s’adressent à toute personne et ne remplacent
+          jamais un suivi médical.
         </p>
 
         <a class="mici-link" href="#contact">
@@ -1786,18 +1971,25 @@
       <div class="container">
 
         <div class="cta-box">
-          <h2>Envie de faire un premier pas ?</h2>
+          <p class="small-label">PRENDRE CONTACT</p>
+
+          <h2>Vous souhaitez en parler simplement ?</h2>
 
           <p>
-            Contactez-moi pour recevoir les informations sur les séances,
-            les ateliers de méditation ou les accompagnements de préparation mentale.
+            Que vous soyez sportif, débutant en méditation ou simplement dans
+            une période où vous avez besoin de retrouver un peu de clarté,
+            vous pouvez m’écrire.
+          </p>
+
+          <p>
+            Nous verrons ensemble si mon approche correspond à ce que vous recherchez.
           </p>
 
           <a
             class="button button-coral"
             href="mailto:jeremy@nocrohnlimits.fr?subject=Demande%20d%27information%20NoCrohnLimits"
           >
-            Me contacter
+            Échanger avec Jérémy
           </a>
         </div>
 
@@ -1814,7 +2006,7 @@
     <div class="container footer-content">
       <p>
         <strong>NoCrohnLimits</strong> —
-        Méditation, préparation mentale et progression
+        Méditation, préparation mentale et équilibre
       </p>
 
       <p>
